@@ -20,7 +20,42 @@
     </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2"></div>
+            <div class="row mt-1 mb-2">
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector"
+                            class="custom-select custom-select-sm rounded-0 border border-{% if sort or direction %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if not sort and not direction %}selected{% endif %}>Sort by...</option>
+                            <option value="price_ac_asc" {% if 'price_ac_asc' in current_sorting %}selected{% endif %}>Price Accessories
+                                (low to high)</option>
+                            <option value="price_ac_desc" {% if 'price_ac_desc' in current_sorting %}selected{% endif %}>Price Accessories
+                                (high to low)</option>
+                            <option value="price_250g_asc" {% if 'price_250g_asc' in current_sorting %}selected{% endif %}>Price Coffee
+                                Beans (low to high)</option>
+                            <option value="price_250g_desc" {% if 'price_250g_desc' in current_sorting %}selected{% endif %}>Price Coffee
+                                Beans (high to low)</option>
+                            <option value="rates_asc" {% if 'rates_asc' in current_sorting %}selected{% endif %}>Rating (low to high)
+                            </option>
+                            <option value="rates_desc" {% if 'rates_desc' in current_sorting %}selected{% endif %}>Rating (high to low)
+                            </option>
+                            <option value="name_asc" {% if 'name_asc' in current_sorting %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if 'name_desc' in current_sorting %}selected{% endif %}>Name (Z-A)</option>
+                            <option value="category_asc" {% if 'category_asc' in current_sorting %}selected{% endif %}>Category (A-Z)
+                            </option>
+                            <option value="category_desc" {% if 'category_desc' in current_sorting %}selected{% endif %}>Category (Z-A)
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -41,6 +76,14 @@
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                    {% if product.category %}
+                                    <p class="small mt-1 mb-0">
+                                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                        </a>
+                                    </p>
+                                    {% endif %}
                                     <p class="lead mb-0 text-left font-weight-bold">${{ product.price_250g }}</p>
                                     {% if product.rates %}
                                     <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rates }} /
