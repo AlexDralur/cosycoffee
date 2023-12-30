@@ -54,7 +54,7 @@ def all_products(request):
         if 's' in request.GET:
             query = request.GET['s']
             if not query:
-                message.error(request, 'No text was typed on the search')
+                messages.error(request, 'No text was typed on the search')
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query)

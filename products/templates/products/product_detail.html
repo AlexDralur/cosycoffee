@@ -147,7 +147,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include '/workspaces/cosycoffee/products/templates/products/quantity_input_script.html' %}
+{% include '/workspaces/cosycoffee/products/templates/products/includes/quantity_input_script.html' %}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const weightButtons = document.querySelectorAll('input[name="product_weight"]');
