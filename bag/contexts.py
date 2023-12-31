@@ -23,8 +23,8 @@ def bag_contents(request):
             subtotal = quantity * product.price_1kg
         elif hasattr(product, 'price_ac') and product.price_ac is not None:
             subtotal = quantity * product.price_ac
-        else:
-            subtotal = 0
+        #else:
+            #subtotal = 0
 
         total += subtotal
         product_count += quantity
