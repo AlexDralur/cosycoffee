@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block page_header %}
+{% extends "base.html" %}
+{% load bag_tools %}
+{% load static %}
+{% block page_header %}
 <div class="container header-container">
   <div class="row">
     <div class="col"></div>
@@ -28,7 +31,7 @@
 
                 <th scope="col">Price 250g</th>
                 <th scope="col">Price 1kg</th>
-                <th scope="col">Price Accessorie</th>
+                <th scope="col">Price Accessories</th>
                 <th scope="col">Qty</th>
                 <th scope="col">Subtotal</th>
               </tr>
@@ -86,7 +89,7 @@
                 <p class="my-0">{{ item.quantity }}</p>
               </td>
               <td class="py-3">
-                <p class="my-0">${{ item.subtotal }}</p>
+                <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
               </td>
             </tr>
             {% endfor %}
@@ -116,7 +119,7 @@
                   </span>
                   <span class="text-uppercase">Keep Shopping</span>
                 </a>
-                <a href="" class="btn btn-black rounded-0 btn-lg">
+                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                   <span class="text-uppercase">Secure Checkout</span>
                   <span class="icon">
                     <i class="fas fa-lock"></i>
