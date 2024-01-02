@@ -2,9 +2,9 @@
 
 ## **Overview**
 
-Revforum is an online forum made with Django framework. It allows people with their shared love for motorcycle to exchange options and experiences. On categories created by the admin, the users can create their own posts and comment on posts made by themselves or others. They can also like and favourite posts.
+Cosycoffee is an e-commerce website aimed to coffee lovers. On the website, the users can find several options of speciality coffee beans to buy and also accessories like filters, different brewing methods and others. Once they are logged in and they make their first purchase, their shipping details are attached to their profile, so they do not need to repeat that step on a second order. They also have the chance to sign up for the newsletter.
 
-![Main screen screenshot](static/images-docs/main_page_screenshot.png)
+![Main screen screenshot]()
 
 ## Table of contents
 
@@ -18,11 +18,11 @@ Revforum is an online forum made with Django framework. It allows people with th
     - [**Forum Structure:**](#forum-structure)
   - [**Current Features**](#current-features)
       - [*Main Screen:*](#main-screen)
-      - [*Post List screen:*](#post-list-screen)
-      - [*Post screen:*](#post-screen)
-      - [*Post Update screen:*](#post-update-screen)
-      - [*Comment Update screen:*](#comment-update-screen)
-      - [*Post and Comment Delete screen:*](#post-and-comment-delete-screen)
+      - [*Products page:*](#products-page)
+      - [*Product detail page:*](#product-detail-page)
+      - [*Shopping cart page:*](#shopping-cart-page)
+      - [*Secure checkout:*](#secure-checkout)
+      - [*Profile page:*](#profile-page)
   - [**Future-Enhancements**](#future-enhancements)
   - [**Testing Phase**](#testing-phase)
   - [**Validators**](#validators)
@@ -37,9 +37,11 @@ Revforum is an online forum made with Django framework. It allows people with th
 
 ### **Target Audiences:**
 
-- Users interested in motorcycles.
-- Users interested in interact with other people with shared loved for motorcycles.
-- Users interested in share their experiences.
+- Users interested in coffee.
+- Users interested in speciality coffee.
+- Users interested in a premium experience with coffee.
+- Users interested in having good quality coffee at their own property.
+- Users interested in making high quality coffee at home.
 ​
 
 ### **User Stories:**
@@ -47,30 +49,36 @@ Revforum is an online forum made with Django framework. It allows people with th
 - As a user, I want to sign up.
 - As a user, I want to sign in.
 - As a user, I want to sign out.
-- As a user, I want to choose a category to see its posts.
-- As a user, I want to make a post.
-- As a user, I want to add a photo to my post.
-- As a user, I want to update a post.
-- As a user, I want to delete a post.
-- As a user, I want to like a post.
-- As a user, I want to comment a post.
-- As a user, I want to update a comment.
-- As a user, I want to delete a comment.
-- As an administrator, I want to create a category.
-- As an administrator, I want to review a flagged post.
+- As a user, I want to reset my password.
+- As a user, I want to be able to modify my password if I am logged in.
+- As a user, I want to see all the available coffees/accessories.
+- As a user, I want to search all the available coffees/accessories.
+- As a user, I want to see more details of each coffee/accessory.
+- As a user, I want to add the coffee/accessory to the cart.
+- As a user, I want to check my current shopping cart.
+- As a user, I want to add or remove the quantity of items in the shopping cart.
+- As a user, I want to add or remove items of the shopping cart.
+- As a user, I want to know how much is order at any specific time.
+- As a user, I want to add my shipping and billing addresses.
+- As a user, I want to know how much would be the shipping cost.
+- As a user, I want to add my payment details.
+- As an admin, I want to add coffee/accessories to the website.
+- As an admin, I want to update coffee/accessories information on the website.
+- As an admin, I want to remove coffee/accessories from the website.
+- As an admin, I want the orders made on website.
 ​
 
 ### **Site Aims:**
 
-- To create a space for conversation regarding motorcycles.
-- To present itself as another option for users to get and share information.
-- To incentivate discussions.
-- To facilitate the spread of information, specially regarding events or similar.
-- To provide an excellent user experience without any errors or bugs.
+- To provide an e-commerce website for coffee aficionados.
+- To provide the information clients interested in speciality coffee would be interested, such as origin, processing method, producer, etc.
+- To provide a safe environment for users to buy coffee or coffee paraphernalia.
+- To provide an excellent buying experience with information in all the steps of the buying process.
+- To allow users to sign up to the Newsletter so they can be informed of any sales, promotions or new arrivals.
 
 ### **Forum Structure:**
 
-![Forum Structure](static/images-docs/diagram_revforum.png)
+![Cosycoffee Structure - Diagram]()
 
 ## **Current Features**
 
@@ -78,40 +86,45 @@ Revforum is an online forum made with Django framework. It allows people with th
 
 #### *Main Screen:*
 
-- Main screen of the forum. User or visitors (they do not have to be logged) can see the categories and how many posts there are inside each category.
+- Main screen of the website. The page is divided in five main areas:
+  . Banner with the threshold for free shipping.
+  . Navigation bar with a search button for the products and profile access.
+  . Quick links to the products: all products, coffee beans or accessories.
+  . Carousel with the main products available.
+  . Footer with connection to social media profiles.
 
-![Main screen screenshot](static/images-docs/main_page_screenshot.png)
+![Main screen screenshot]()
 
-#### *Post List screen:*
+#### *Products page:*
 
-- Once the user/visitor clicks in one category, they are then redirected to all the posts inside that category. The user can see how many comments there are in each post.
+- Once the user/visitor clicks in one of the products links, the page of the products is shown. It provides the image, name, the price and the rate of the product.
 
-![Post List screenshot](static/images-docs/posts_list.png)
+![Product page screenshot]()
 
-#### *Post screen:*
+#### *Product detail page:*
 
-- When the user clicks the post, they are presented with: the title, the description, who made it, when it was made, the possibility to like and comment.
+- When the user clicks at any of the products, they are redirect to the information of the product. They have more details of each product and can choose to add to their shopping cart the quantity they desire of the product.
 
-![Post screenshot](static/images-docs/post_screenshot.png)
+![Product detail screenshot]()
 
-#### *Post Update screen:*
+#### *Shopping cart page:*
 
-- If the user is the one who made the post, they can click on a button to update the post. They can change the title, content, image and the category.
+- If the user clicks on the shopping cart at the navbar, the user can access their current order. They will have a list of the items, with their quantity, how much each individual item will cost and if they have free shipping or not. If they have not reached the threshold, the website inform the user how much more they need to add to the car to be able to have free delivery.
 
-![Post Update screenshot](static/images-docs/post_update_screenshot.png)
+![Shopping cart screenshot]()
 
-#### *Comment Update screen:*
+#### *Secure checkout:*
 
-- If the user is the one who made the comment, they can click on a button to update the post. They can change the body of the comment.
+- When the user decides to make the payment, they are taken to the page where they can add their shipping/billing information. If they are not logged in, the website requests them to login or to sign up. They are not able to pay for an order without an account. This is a marketing decision, so that every sell can bring a new lead for the list of users and for the newsletter. Once the payment is finalised, they are informed that the order was made and that they will received an email with the confirmation soon.
+ 
+![Secure checkout screenshot]()
+![Order succeeded screenshot]()
 
-![Comment Update screenshot](static/images-docs/comment_update_screenshot.png)
+#### *Profile page:*
 
-#### *Post and Comment Delete screen:*
+- 
 
-- The user has the possibility to delete their own post and comments.
-
-![Post Delete screenshot](static/images-docs/delete_post_screenshot.png)
-![Comment Delete screenshot](static/images-docs/delete_comment_screenshot.png)
+![Profile screenshot]()
 
 ​
 
@@ -119,9 +132,8 @@ Revforum is an online forum made with Django framework. It allows people with th
 
 ​
 
-- Users could log through their social networks profiles (FB, X) or email.
-- Create a profile page where users can add their personal photos and descriptions.
-- Users could report a post to be checked by the admin.
+- Users could log through their social networks profiles (FB, X).
+
 ​
 
 ## **Testing Phase**
@@ -135,108 +147,24 @@ Test: Access admin area and created new category.
 Result: New category appeared on the website.
 ***
 
-Implementation: Create button to allow user to crate new post.
-
-Test: Clicked on button.
-
-Result: New page with new post form created.
-***
-
-Implementation: Create new post inside a category.
-
-Test: Fill out the form to create new post.
-
-Result: New post added to the category.
-***
-
-Implementation: Button for the user to update post.
-
-Test: Clicked on button.
-
-Result: New page appeared with the update post form.
-***
-
-Implementation: Update post inside a category.
-
-Test: Fill out the form to update post.
-
-Result: Post page updated with the new information.
-***
-
-Implementation: Button for the user to delete post.
-
-Test: Clicked on button.
-
-Result: After confirmation, Posts list loaded without the deleted post.
-***
-
-Implementation: Create area to allow user to crate new comment.
-
-Test: Typed the comment and clicked to post comment.
-
-Result: Comment appeared on the page.
-***
-
-Implementation: Create button to update comment.
-
-Test: Clicked on button.
-
-Result: Post page updated with updated comment.
-***
-
-Implementation: Button for the user to delete comment.
-
-Test: Clicked on button.
-
-Result: After confirmation, Post page loaded without the deleted comment.
-***
-
 ## **Validators**
 
-. Lighthouse ![Lighthouse screenshot](static/images-docs/revforum_lighthouse.png)
+. Lighthouse ![Lighthouse screenshot]()
 All pages passed the Lighthouse check.
 
-. W3C HTML Validator ![W3C HTML Validator screenshot](static/images-docs/w3c_html_validator.png)
+. W3C HTML Validator ![W3C HTML Validator screenshot]()
 
-. W3C CSS Validator ![W3C CSS Validator screenshot](static/images-docs/w3c-css-validator.png)
+. W3C CSS Validator ![W3C CSS Validator screenshot]()
 
-. Python Linter ![Python Linter Validator screenshot](static/images-docs/ci_python_linter.png)
+. Python Linter ![Python Linter Validator screenshot]()
 
 ## **Bugs**
 
-Problem 🐞: User was redirected to the main page after making a new post.
+Problem 🐞: 
 
-Cause🛠: The redirect page was incorrect.
+Cause🛠: 
 
-Resolution✅: View code changed to redirect to the posts list page.
-***
-
-Problem 🐞: User was redirected to the main page after updating a post.
-
-Cause🛠: The redirect page was incorrect.
-
-Resolution✅: View code changed to redirect to the post page.
-***
-
-Problem 🐞: Username of the user who made the comment on a post was not being shown.
-
-Cause🛠: The code in the template was not correct.
-
-Resolution✅: Change the code to retrieve the username of the comment saved on the database.
-***
-
-Problem 🐞: User was not being redirected to the post page if lhey liked/favourite the post.
-
-Cause🛠: The redirect page was incorrect.
-
-Resolution✅: View code changed to redirect to the post page.
-***
-
-Problem 🐞: Post counter within a category not showing the amount.
-
-Cause🛠: Co-relation between models was incorrect.
-
-Resolution✅: Changed to a ForeignKey relation.
+Resolution✅: 
 ***
 
 ## **Deployment**
@@ -245,9 +173,11 @@ Resolution✅: Changed to a ForeignKey relation.
 
 - Python.
 - Django.
+- Javascript.
 - Django-allauth.
-- Cloudinary.
+- Pillow.
 - Crispy-forms.
+- Stripe.
 ​
 
 ## **Credits**
@@ -260,7 +190,4 @@ Resolution✅: Changed to a ForeignKey relation.
 
 ### **Content:**
 
-- Navbar based on the one used on the code along project "I Think Therefore I Blog" from [CodeInstitute] (<https://github.com/Code-Institute-Solutions/Django3blog>)
-- Ability to like and favourite post based on Tutorial made by [VeryAcademy](<https://www.youtube.com/watch?v=H4QPHLmsZMU&ab_channel=VeryAcademy>)
-- Stackoverflow. Without it, this project would never be completed.
-- Image from mockup post taken from [Motorcycle News](https://www.motorcyclenews.com/bike-reviews/harley-davidson/livewire/2019/)
+- Structure of the project (apps) based on the codealong project "Boutique Ado" from [CodeInstitute] (<https://github.com/Code-Institute-Org/boutique_ado_v1>)
