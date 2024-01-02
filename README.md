@@ -1,39 +1,266 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Revforum**
 
-Welcome,
+## **Overview**
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Revforum is an online forum made with Django framework. It allows people with their shared love for motorcycle to exchange options and experiences. On categories created by the admin, the users can create their own posts and comment on posts made by themselves or others. They can also like and favourite posts.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+![Main screen screenshot](static/images-docs/main_page_screenshot.png)
 
-## Codeanywhere Reminders
+## Table of contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+- [**Revforum**](#revforum)
+  - [**Overview**](#overview)
+  - [Table of contents](#table-of-contents)
+  - [**Planning stage**](#planning-stage)
+    - [**Target Audiences:**](#target-audiences)
+    - [**User Stories:**](#user-stories)
+    - [**Site Aims:**](#site-aims)
+    - [**Forum Structure:**](#forum-structure)
+  - [**Current Features**](#current-features)
+      - [*Main Screen:*](#main-screen)
+      - [*Post List screen:*](#post-list-screen)
+      - [*Post screen:*](#post-screen)
+      - [*Post Update screen:*](#post-update-screen)
+      - [*Comment Update screen:*](#comment-update-screen)
+      - [*Post and Comment Delete screen:*](#post-and-comment-delete-screen)
+  - [**Future-Enhancements**](#future-enhancements)
+  - [**Testing Phase**](#testing-phase)
+  - [**Validators**](#validators)
+  - [**Bugs**](#bugs)
+  - [**Deployment**](#deployment)
+  - [**Tech**](#tech)
+  - [**Credits**](#credits)
+    - [**Honorable mentions**](#honorable-mentions)
+    - [**Content:**](#content)
 
-`python3 -m http.server`
+## **Planning stage**
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### **Target Audiences:**
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+- Users interested in motorcycles.
+- Users interested in interact with other people with shared loved for motorcycles.
+- Users interested in share their experiences.
+​
 
-`http_server`
+### **User Stories:**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- As a user, I want to sign up.
+- As a user, I want to sign in.
+- As a user, I want to sign out.
+- As a user, I want to choose a category to see its posts.
+- As a user, I want to make a post.
+- As a user, I want to add a photo to my post.
+- As a user, I want to update a post.
+- As a user, I want to delete a post.
+- As a user, I want to like a post.
+- As a user, I want to comment a post.
+- As a user, I want to update a comment.
+- As a user, I want to delete a comment.
+- As an administrator, I want to create a category.
+- As an administrator, I want to review a flagged post.
+​
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### **Site Aims:**
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- To create a space for conversation regarding motorcycles.
+- To present itself as another option for users to get and share information.
+- To incentivate discussions.
+- To facilitate the spread of information, specially regarding events or similar.
+- To provide an excellent user experience without any errors or bugs.
 
-To log into the Heroku toolbelt CLI:
+### **Forum Structure:**
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![Forum Structure](static/images-docs/diagram_revforum.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## **Current Features**
 
----
+​
 
-Happy coding!
+#### *Main Screen:*
+
+- Main screen of the forum. User or visitors (they do not have to be logged) can see the categories and how many posts there are inside each category.
+
+![Main screen screenshot](static/images-docs/main_page_screenshot.png)
+
+#### *Post List screen:*
+
+- Once the user/visitor clicks in one category, they are then redirected to all the posts inside that category. The user can see how many comments there are in each post.
+
+![Post List screenshot](static/images-docs/posts_list.png)
+
+#### *Post screen:*
+
+- When the user clicks the post, they are presented with: the title, the description, who made it, when it was made, the possibility to like and comment.
+
+![Post screenshot](static/images-docs/post_screenshot.png)
+
+#### *Post Update screen:*
+
+- If the user is the one who made the post, they can click on a button to update the post. They can change the title, content, image and the category.
+
+![Post Update screenshot](static/images-docs/post_update_screenshot.png)
+
+#### *Comment Update screen:*
+
+- If the user is the one who made the comment, they can click on a button to update the post. They can change the body of the comment.
+
+![Comment Update screenshot](static/images-docs/comment_update_screenshot.png)
+
+#### *Post and Comment Delete screen:*
+
+- The user has the possibility to delete their own post and comments.
+
+![Post Delete screenshot](static/images-docs/delete_post_screenshot.png)
+![Comment Delete screenshot](static/images-docs/delete_comment_screenshot.png)
+
+​
+
+## **Future-Enhancements**
+
+​
+
+- Users could log through their social networks profiles (FB, X) or email.
+- Create a profile page where users can add their personal photos and descriptions.
+- Users could report a post to be checked by the admin.
+​
+
+## **Testing Phase**
+
+​
+
+Implementation: Create new category as admin.
+
+Test: Access admin area and created new category.
+
+Result: New category appeared on the website.
+***
+
+Implementation: Create button to allow user to crate new post.
+
+Test: Clicked on button.
+
+Result: New page with new post form created.
+***
+
+Implementation: Create new post inside a category.
+
+Test: Fill out the form to create new post.
+
+Result: New post added to the category.
+***
+
+Implementation: Button for the user to update post.
+
+Test: Clicked on button.
+
+Result: New page appeared with the update post form.
+***
+
+Implementation: Update post inside a category.
+
+Test: Fill out the form to update post.
+
+Result: Post page updated with the new information.
+***
+
+Implementation: Button for the user to delete post.
+
+Test: Clicked on button.
+
+Result: After confirmation, Posts list loaded without the deleted post.
+***
+
+Implementation: Create area to allow user to crate new comment.
+
+Test: Typed the comment and clicked to post comment.
+
+Result: Comment appeared on the page.
+***
+
+Implementation: Create button to update comment.
+
+Test: Clicked on button.
+
+Result: Post page updated with updated comment.
+***
+
+Implementation: Button for the user to delete comment.
+
+Test: Clicked on button.
+
+Result: After confirmation, Post page loaded without the deleted comment.
+***
+
+## **Validators**
+
+. Lighthouse ![Lighthouse screenshot](static/images-docs/revforum_lighthouse.png)
+All pages passed the Lighthouse check.
+
+. W3C HTML Validator ![W3C HTML Validator screenshot](static/images-docs/w3c_html_validator.png)
+
+. W3C CSS Validator ![W3C CSS Validator screenshot](static/images-docs/w3c-css-validator.png)
+
+. Python Linter ![Python Linter Validator screenshot](static/images-docs/ci_python_linter.png)
+
+## **Bugs**
+
+Problem 🐞: User was redirected to the main page after making a new post.
+
+Cause🛠: The redirect page was incorrect.
+
+Resolution✅: View code changed to redirect to the posts list page.
+***
+
+Problem 🐞: User was redirected to the main page after updating a post.
+
+Cause🛠: The redirect page was incorrect.
+
+Resolution✅: View code changed to redirect to the post page.
+***
+
+Problem 🐞: Username of the user who made the comment on a post was not being shown.
+
+Cause🛠: The code in the template was not correct.
+
+Resolution✅: Change the code to retrieve the username of the comment saved on the database.
+***
+
+Problem 🐞: User was not being redirected to the post page if lhey liked/favourite the post.
+
+Cause🛠: The redirect page was incorrect.
+
+Resolution✅: View code changed to redirect to the post page.
+***
+
+Problem 🐞: Post counter within a category not showing the amount.
+
+Cause🛠: Co-relation between models was incorrect.
+
+Resolution✅: Changed to a ForeignKey relation.
+***
+
+## **Deployment**
+
+## **Tech**
+
+- Python.
+- Django.
+- Django-allauth.
+- Cloudinary.
+- Crispy-forms.
+​
+
+## **Credits**
+
+### **Honorable mentions**
+
+- Larissa Moura (my wife) - She was my tester and also my design guru.
+- Richard Wells (my Code Institute tutor) - Help me throughout the project in all aspects.
+​
+
+### **Content:**
+
+- Navbar based on the one used on the code along project "I Think Therefore I Blog" from [CodeInstitute] (<https://github.com/Code-Institute-Solutions/Django3blog>)
+- Ability to like and favourite post based on Tutorial made by [VeryAcademy](<https://www.youtube.com/watch?v=H4QPHLmsZMU&ab_channel=VeryAcademy>)
+- Stackoverflow. Without it, this project would never be completed.
+- Image from mockup post taken from [Motorcycle News](https://www.motorcyclenews.com/bike-reviews/harley-davidson/livewire/2019/)
