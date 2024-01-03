@@ -205,3 +205,8 @@ a.category-badge>span.badge:hover {
         height: calc(100vh - 116px);
     }
 }
+
+.order-history {
+    max-height: 416px; /*HEIGHT OF PROFILE FORM + SUBMIT BUTTON */
+    overflow-y: auto;
+}
