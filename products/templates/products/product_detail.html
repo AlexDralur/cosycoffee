@@ -1,167 +1,208 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block page_header %}
+{% extends "base.html" %} {% load static %} {% block page_header %}
 <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
+  <div class="row">
+    <div class="col"></div>
+  </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
-                {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-                {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ product.image }}"
-                        alt="{{ product.name }}">
-                </a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="product-details-container mb-5 mt-md-5">
-                <p class="mb-0">{{ product.name }}</p>
-                {% if product.price_250g %}
-                <p class="lead mb-0 text-left font-weight-bold">
-                    250g - ${{ product.price_250g }} / 
-                    1kg - ${{ product.price_1kg }} </p>
-                {% endif%}
-                {% if product.price_ac %}
-                <p class="lead mb-0 text-left font-weight-bold">${{ product.price_ac }}</p>
-                {% endif %}
-                {% if product.category %}
-                <p class="small mt-1 mb-0">
-                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                    </a>
-                </p>
-                {% endif %}
-                {% if product.rates %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rates }} / 10</small>
-                {% else %}
-                <small class="text-muted">No Rating</small>
-                {% endif %}
-                <p class="mt-3">{{ product.description }}</p>
-                {% if product.price_250g %}
-                <p class="mt-3">{{ product.region }}</p>
-                <p class="mt-3">{{ product.processing_method }}</p>
-                <p class="mt-3">{{ product.variety }}</p>
-                <p class="mt-3">{{ product.notes }}</p>
-                <p class="mt-3">{{ product.producers_name }}</p>
-                {% else %}
-                <p class="mt-3">{{ product.brand }}</p>
-                {% endif %}
-            </div>
-            {% if product.price_250g %}
-            <div class="buttons-type">
-                <label>
-                    <input type="radio" name="product_weight" value="250g"> 250g
-                </label>
-                <label>
-                    <input type="radio" name="product_weight" value="1kg"> 1kg
-                </label>
-            </div>
-            {% endif %}
-            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST" id="productForm"
-                style="display:none;">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-12">
-                        <p class="mt-3"><strong>Quantity:</strong></p>
-                        <div class="form-group w-50">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button class="decrement-qty btn btn-black rounded-0" data-item_id="{{ product.id }}"
-                                        id="decrement-qty_{{ product.id }}">
-                                        <span class="icon">
-                                            <i class="fas fa-minus"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99"
-                                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                <div class="input-group-append">
-                                    <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ product.id }}"
-                                        id="increment-qty_{{ product.id }}">
-                                        <span class="icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Keep Shopping</span>
-                        </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </div>
-            </form>
-            {% if product.price_ac %}
-            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-12">
-                        <p class="mt-3"><strong>Quantity:</strong></p>
-                        <div class="form-group w-50">
-                            <div class="input-group">
-                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
-                                    max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Keep Shopping</span>
-                        </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </div>
-            </form>
-            {% endif %}
-        </div>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+      <div class="image-container my-5">
+        {% if product.image %}
+        <a href="{{ product.image.url }}" target="_blank">
+          <img
+            class="card-img-top img-fluid"
+            src="{{ product.image.url }}"
+            alt="{{ product.name }}"
+          />
+        </a>
+        {% else %}
+        <a href="">
+          <img
+            class="card-img-top img-fluid"
+            src="{{ MEDIA_URL }}{{ product.image }}"
+            alt="{{ product.name }}"
+          />
+        </a>
+        {% endif %}
+      </div>
     </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="product-details-container mb-5 mt-md-5">
+        <p class="mb-0">{{ product.name }}</p>
+        {% if product.price_250g %}
+        <p class="lead mb-0 text-left font-weight-bold">
+          250g - ${{ product.price_250g }} / 1kg - ${{ product.price_1kg }}
+        </p>
+        {% endif%} {% if product.price_ac %}
+        <p class="lead mb-0 text-left font-weight-bold">
+          ${{ product.price_ac }}
+        </p>
+        {% endif %} {% if product.category %}
+        <p class="small mt-1 mb-0">
+          <a
+            class="text-muted"
+            href="{% url 'products' %}?category={{ product.category.name }}"
+          >
+            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+          </a>
+        </p>
+        {% endif %} {% if product.rates %}
+        <small class="text-muted"
+          ><i class="fas fa-star mr-1"></i>{{ product.rates }} / 10</small
+        >
+        {% else %}
+        <small class="text-muted">No Rating</small>
+        {% endif %}
+        <p class="mt-3">{{ product.description }}</p>
+        {% if product.price_250g %}
+        <p class="mt-3">{{ product.region }}</p>
+        <p class="mt-3">{{ product.processing_method }}</p>
+        <p class="mt-3">{{ product.variety }}</p>
+        <p class="mt-3">{{ product.notes }}</p>
+        <p class="mt-3">{{ product.producers_name }}</p>
+        {% else %}
+        <p class="mt-3">{{ product.brand }}</p>
+        {% endif %}
+      </div>
+      <form
+        class="form"
+        action="{% url 'add_to_bag' product.id %}"
+        method="POST"
+        id="productForm"
+      >
+        {% csrf_token %}
+        <!--- <div class="form-row">
+                    <div class="col-12">
+                        <div class="buttons-type">
+                            {% if product.price_250g %}
+                            <label>
+                                <input type="radio" name="product_weight" value="250g"> 250g
+                            </label>
+                            {% endif %}
+                            {% if product.price_1kg %}
+                            <label>
+                                <input type="radio" name="product_weight" value="1kg"> 1kg
+                            </label>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div> --->
+
+        <!-- Quantity input for 250g -->
+        {% if product.price_250g %}
+        <div class="form-row" id="quantity_250g">
+          <div class="col-12">
+            <p class="mt-3"><strong>Quantity (250g):</strong></p>
+            <div class="form-group w-50">
+              <div class="input-group">
+                <input
+                  class="form-control qty_input"
+                  type="number"
+                  name="quantity_250g"
+                  value="1"
+                  min="1"
+                  max="99"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Quantity input for 1kg -->
+        {% if product.price_1kg %}
+        <div class="form-row" id="quantity_1kg">
+          <div class="col-12">
+            <p class="mt-3"><strong>Quantity (1kg):</strong></p>
+            <div class="form-group w-50">
+              <div class="input-group">
+                <input
+                  class="form-control qty_input"
+                  type="number"
+                  name="quantity_1kg"
+                  value="1"
+                  min="1"
+                  max="99"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Quantity input for ac -->
+        {% if product.price_ac %}
+        <div class="form-row" id="quantity_ac">
+          <div class="col-12">
+            <p class="mt-3"><strong>Quantity (ac):</strong></p>
+            <div class="form-group w-50">
+              <div class="input-group">
+                <input
+                  class="form-control qty_input"
+                  type="number"
+                  name="quantity_ac"
+                  value="1"
+                  min="1"
+                  max="99"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <div class="col-12">
+          <a
+            href="{% url 'products' %}"
+            class="btn btn-outline-black rounded-0 mt-5"
+          >
+            <span class="icon">
+              <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+          </a>
+          <input
+            type="submit"
+            class="btn btn-black rounded-0 text-uppercase mt-5"
+            value="Add to Bag"
+          />
+        </div>
+        <input type="hidden" name="redirect_url" value="{{ request.path }}" />
+      </form>
+    </div>
+  </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-{% include '/workspaces/cosycoffee/products/templates/products/includes/quantity_input_script.html' %}
+{% endblock %} {% block postloadjs %} {{ block.super }} {% include
+'/workspaces/cosycoffee/products/templates/products/includes/quantity_input_script.html'
+%}
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const weightButtons = document.querySelectorAll('input[name="product_weight"]');
-        const productForm = document.getElementById('productForm');
+  document.addEventListener("DOMContentLoaded", function () {
+    const weightButtons = document.querySelectorAll(
+      'input[name="product_weight"]'
+    );
+    const productForm = document.getElementById("productForm");
 
-        weightButtons.forEach(function (button) {
-            button.addEventListener('change', function () {
-                if (this.value === '250g' || this.value === '1kg') {
-                    productForm.style.display = 'block';
-                } else {
-                    productForm.style.display = 'none';
-                }
-            });
-        });
+    weightButtons.forEach(function (button) {
+      button.addEventListener("change", function () {
+        const selectedWeight = this.value;
+
+        // Hide all quantity input sections
+        document.getElementById("quantity_250g").style.display = "none";
+        document.getElementById("quantity_1kg").style.display = "none";
+        document.getElementById("quantity_ac").style.display = "none";
+
+        // Show the quantity input section based on the selected weight
+        if (selectedWeight === "250g") {
+          document.getElementById("quantity_250g").style.display = "block";
+        } else if (selectedWeight === "1kg") {
+          document.getElementById("quantity_1kg").style.display = "block";
+        } else if (selectedWeight === "ac") {
+          document.getElementById("quantity_ac").style.display = "block";
+        }
+      });
     });
+  });
 </script>
 {% endblock %}
