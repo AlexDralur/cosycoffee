@@ -3,38 +3,38 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
-from decimal import Decimal
-from django.conf import settings
-from django.shortcuts import get_object_or_404
-from products.models import Product
-
 def bag_contents(request):
     bag_items = []
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
 
-    for item_id, quantity in bag.items():
+    for item_id, item_data in bag.items():
         product = get_object_or_404(Product, id=item_id)
 
-        if hasattr(product, 'price_250g') and product.price_250g is not None:
-            subtotal = quantity * product.price_250g
-        elif hasattr(product, 'price_1kg') and product.price_1kg is not None:
-            subtotal = quantity * product.price_1kg
-        elif hasattr(product, 'price_ac') and product.price_ac is not None:
-            subtotal = quantity * product.price_ac
-        #else:
-            #subtotal = 0
+        for weight, quantity in item_data.items():
+            if weight == '250g' and hasattr(product, 'price_250g') and product.price_250g is not None:
+                subtotal = quantity * product.price_250g
+            elif weight == '1kg' and hasattr(product, 'price_1kg') and product.price_1kg is not None:
+                subtotal = quantity * product.price_1kg
+            elif weight == 'ac' and hasattr(product, 'price_ac') and product.price_ac is not None:
+                subtotal = quantity * product.price_ac
+            else:
+                subtotal = 0  # Handle other cases if needed
 
-        total += subtotal
-        product_count += quantity
+            total += subtotal
+            product_count += quantity
 
-        bag_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-            'subtotal': subtotal,
-        })
+            bag_items.append({
+                'item_id': item_id,
+                'weight': weight,
+                'quantity': quantity,
+                'quantity_250g': quantity if weight == '250g' else 0,
+                'quantity_1kg': quantity if weight == '1kg' else 0,
+                'quantity_ac': quantity if weight == 'ac' else 0,
+                'product': product,
+                'subtotal': subtotal,
+            })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
