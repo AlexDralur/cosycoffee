@@ -16,9 +16,12 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-md-6">
-            <p>Producers</p>
-        </div>
+        <h1>Producers List</h1>
+        <ul>
+            {% for producer in producers %}
+            <li>{{ producer.name }} - {{ producer.location }}</li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 {% endblock %}
