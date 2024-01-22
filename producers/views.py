@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def producers(request):
+    """ This view returns the producers page """
+    return render(request, 'producers/producers.html')

@@ -73,6 +73,7 @@
             <a href="{% url 'products' %}">All Products</a>
             <a href="{% url 'products' %}?category=coffee_beans">Coffee Beans</a>
             <a href="{% url 'products' %}?category=accessories">Accessories</a>
+            <a href="{% url 'producers' %}">Meet our producers</a>
         </div>
       </div>
     </div>
@@ -82,13 +83,13 @@
         {% for message in messages %}
             {% with message.level as level %}
                 {% if level == 40 %}
-                    {% include '/workspaces/cosycoffee/templates/includes/toasts/toast_error.html' %}
+                    {% include 'templates/includes/toasts/toast_error.html' %}
                 {% elif level == 30 %}
-                    {% include '/workspaces/cosycoffee/templates/includes/toasts/toast_warning.html' %}
+                    {% include 'templates/includes/toasts/toast_warning.html' %}
                 {% elif level == 25 %}
-                    {% include '/workspaces/cosycoffee/templates/includes/toasts/toast_success.html' %}
+                    {% include 'templates/includes/toasts/toast_success.html' %}
                 {% else %}
-                    {% include '/workspaces/cosycoffee/templates/includes/toasts/toast_info.html' %}
+                    {% include 'templates/includes/toasts/toast_info.html' %}
                 {% endif %}
             {% endwith %}
         {% endfor %}
