@@ -72,4 +72,4 @@ def delete_producer(request, producer_id):
     producer = get_object_or_404(Producer, id=producer_id)
     producer.delete()
     messages.success(request, 'Producer deleted!')
-    return redirect(reverse('producers'))
+    return redirect('producers')
