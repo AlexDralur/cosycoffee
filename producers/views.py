@@ -61,3 +61,15 @@ def edit_producer(request, producer_id):
     }
 
     return render(request, template, context)
+
+@login_required
+def delete_producer(request, producer_id):
+    """Delete a specific producer"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Access not permitted.')
+        return redirect(reverse('home'))
+
+    producer = get_object_or_404(Producer, id=producer_id)
+    producer.delete()
+    messages.success(request, 'Producer deleted!')
+    return redirect(reverse('producers'))
