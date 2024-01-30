@@ -23,6 +23,8 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %} 
 
     {% block googlefonts %}
@@ -75,9 +77,9 @@
 
     {% include 'includes/main-nav.html' %}
     
-    <div class="container">
+    <div class="container" id="site-categories">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-around">
             <a href="{% url 'products' %}">All Products</a>
             <a href="{% url 'products' %}?category=coffee_beans">Coffee Beans</a>
             <a href="{% url 'products' %}?category=accessories">Accessories</a>
@@ -116,4 +118,40 @@
     </script>
     {% endblock %}
   </body>
+  <!-- Footer -->
+    <footer>
+        <div class="container-footer">
+            <!-- Social Networks -->
+            <div class="row-social">
+                <ul class="col-100-social-networks">
+                    <li>
+                        <a href="https://facebook.com" target="_blank" rel="noopener"
+                            aria-label="Visit our Facebook page (opens in a new tab)"><i
+                                class="fa-brands fa-facebook fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com" target="_blank" rel="noopener"
+                            aria-label="Visit our Twitter page (opens in a new tab)"><i
+                                class="fa-brands fa-twitter fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com" target="_blank" rel="noopener"
+                            aria-label="Visit our Youtube page (opens in a new tab)"><i
+                                class="fa-brands fa-youtube fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com" target="_blank" rel="noopener"
+                            aria-label="Visit our Instagram page (opens in a new tab)"><i
+                                class="fa-brands fa-instagram fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Copyright Text -->
+            <div class="row-footer">
+                <div class="row-copyright">
+                    <p>© 2023 Alexander Alves</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </html>

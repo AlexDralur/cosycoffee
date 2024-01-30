@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand" href="#">Cosy Coffee</a>
   <button
     class="navbar-toggler"
@@ -13,33 +13,43 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"
-          >Home <span class="sr-only">(current)</span></a
-        >
-      </li>
+    <ul class="navbar-nav mr-auto align-items-center">
       {% if request.user.is_authenticated %} {% if request.user.is_superuser %}
       <li class="nav-item">
-        <a href="{% url 'add_product' %}" class="dropdown-item"
+        <a href="{% url 'add_product' %}" class="dropdown-item text-uppercase"
           >Product Management</a
         >
       </li>
+      <li class="nav-item">
+        <a href="{% url 'add_producer' %}" class="dropdown-item text-uppercase">Producers Management</a>
+      </li>
       {% endif %}
       <li class="nav-item">
-        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+        <a href="{% url 'profile' %}" class="dropdown-item text-uppercase">My Profile</a>
       </li>
       <li class="nav-item">
-        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        <a href="{% url 'account_logout' %}" class="dropdown-item text-uppercase">Logout</a>
       </li>
       {% else %}
       <li class="nav-item">
-        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+        <a href="{% url 'account_signup' %}" class="dropdown-item text-uppercase">Register</a>
       </li>
       <li class="nav-item">
-        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+        <a href="{% url 'account_login' %}" class="dropdown-item text-uppercase">Login</a>
       </li>
       {% endif %}
+      <li class="nav-item d-lg-none">
+        <a href="{% url 'products' %}" class="dropdown-item text-uppercase">All Products</a>
+      </li>
+    <li class="nav-item d-lg-none">
+        <a href="{% url 'products' %}?category=coffee_beans" class="dropdown-item text-uppercase">Coffee Beans</a>
+    </li>
+    <li class="nav-item d-lg-none">
+        <a href="{% url 'products' %}?category=accessories" class="dropdown-item text-uppercase">Accessories</a>
+    </li>
+    <li class="nav-item d-lg-none">
+        <a href="{% url 'producers' %}" class="dropdown-item text-uppercase">Meet our producers</a>
+    </li>
       <li class="list-inline-item">
         <a
           class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"

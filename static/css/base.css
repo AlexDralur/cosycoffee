@@ -1,9 +1,3 @@
-/* FONT 
-
-font-family: 'Mulish', sans-serif;
-
-*/
-
 /* PALETTE OF COLORS 
 
 #0A0908
@@ -19,11 +13,75 @@ html {
 }
 
 body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
+    background-color: #0A0908;
+    color: #F2F4F3;
+    font-family: 'Mulish', sans-serif;
+}
+
+/* MAIN PAGE ------------------------ */
+
+#site-categories .col-12 a {
+    text-decoration: none;
+    color: #F2F4F3;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 991px) {
+    #site-categories {
+        display: none;
+    }
+}
+
+/* NAVBAR -------------------------- */
+
+nav {
+    background-color: #F2F4F3;
+}
+
+#navbarSupportedContent ul li a {
+    font-weight: 500;
+}
+
+#navbarSupportedContent ul li a:hover {
+    background-color: #A9927D;
+    color: #F2F4F3;
+}
+ 
+/* FOOTER -------------------------- */
+
+.container-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    overflow: hidden;
+    bottom: 0;
+}
+
+.row-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col-100-social-networks li {
+    display: inline-block;
+    text-align: center;
+    padding: 1rem 1rem 0 0;
+    height: 2.5rem;
+}
+
+.col-100-social-networks li i,
+.row-copyright>p {
+    color: #F2F4F3;
+}
+
+.row-copyright {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* from Bulma */
