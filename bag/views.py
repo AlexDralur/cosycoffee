@@ -16,41 +16,29 @@ def add_to_bag(request, item_id):
     product = get_object_or_404(Product, id=item_id)
 
     # Get the selected weight from the POST data
-    quantity_250g = int(request.POST.get('quantity_250g', 0))
-    quantity_1kg = int(request.POST.get('quantity_1kg', 0))
-    quantity_ac = int(request.POST.get('quantity_ac', 0))
+    selected_weight = request.POST.get('product_weight')
+    quantity = int(request.POST.get(f'quantity_{selected_weight}', 0))
 
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
     if item_id in bag:
         # Check if the selected weight already exists in the bag
-        if '250g' in bag[item_id]:
-            bag[item_id]['250g'] += quantity_250g
-            messages.success(request, f'Updated {product.name} (250g) quantity to {bag[item_id]["250g"]}')
+        if selected_weight in bag[item_id]:
+            bag[item_id][selected_weight] += quantity
         else:
-            bag[item_id]['250g'] = quantity_250g
-            messages.success(request, f'Added {product.name} (250g) to your bag')
+            bag[item_id][selected_weight] = quantity
 
-        if '1kg' in bag[item_id]:
-            bag[item_id]['1kg'] += quantity_1kg
-            messages.success(request, f'Updated {product.name} (1kg) quantity to {bag[item_id]["1kg"]}')
-        else:
-            bag[item_id]['1kg'] = quantity_1kg
-            messages.success(request, f'Added {product.name} (1kg) to your bag')
-
-        if 'ac' in bag[item_id]:
-            bag[item_id]['ac'] += quantity_ac
-            messages.success(request, f'Updated {product.name} (ac) quantity to {bag[item_id]["ac"]}')
-        else:
-            bag[item_id]['ac'] = quantity_ac
-            messages.success(request, f'Added {product.name} (ac) to your bag')
-
+        messages.success(request, f'Updated {product.name} ({selected_weight}) quantity to {bag[item_id][selected_weight]}')
     else:
-        bag[item_id] = {'250g': quantity_250g, '1kg': quantity_1kg, 'ac': quantity_ac}
-        messages.success(request, f'Added {product.name} to your bag')
+        if selected_weight is None:
+            selected_weight = 'ac'
+            quantity = int(request.POST.get('quantity_ac', 0))
+        bag[item_id] = {selected_weight: quantity}
+        messages.success(request, f'Added {product.name} ({selected_weight}) to your bag')
 
     request.session['bag'] = bag
+    print(bag)
     return redirect(redirect_url)
 
 

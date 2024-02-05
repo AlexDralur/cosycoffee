@@ -30,21 +30,9 @@
                         <tr>
                             <th scope="col">Product Info</th>
                             <th scope="col"></th>
-                            {% for item in bag_items %}
-                            {% if item.product.price_250g %}
-                            <th scope="col">Price 250g</th>
-                            <th scope="col">Quantity 250g</th>
-                            {% endif %}
-                            {% if item.product.price_1kg %}
-                            <th scope="col">Price 1kg</th>
-                            <th scope="col">Quantity 1kg</th>
-                            {% endif %}
-                            {% if item.product.price_ac %}
-                            <th scope="col">Price Accessorie</th>
-                            <th scope="col">Quantity Accessories</th>
-                            {% endif %}
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col">Subtotal</th>
-                            {% endfor %}
                         </tr>
                     </thead>
 
@@ -58,6 +46,11 @@
                             <p class="my-0 small text-muted">
                                 SKU: {{ item.product.sku|upper }}
                             </p>
+                            {% if item.product.price_250g %}
+                            <p class="my-0 small text-muted">
+                                Weight: 250g
+                            </p>
+                            {% endif %}
                         </td>
                         {% if item.product.price_250g %}
                         <td class="py-3">${{ item.product.price_250g }}</td>
