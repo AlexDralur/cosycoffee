@@ -145,6 +145,30 @@ nav {
     color: #5E503F;
 }
 
+.product-table tbody tr {
+    border: 2px solid #5E503F;
+}
+
+.weight-option input {
+    display: none;
+}
+
+.weight-option {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin: 5px;
+}
+
+.weight-option:hover {
+    background-color: #2980b9;
+}
+
 /* FOOTER -------------------------- */
 
 .container-footer {
