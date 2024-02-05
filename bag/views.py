@@ -35,7 +35,7 @@ def add_to_bag(request, item_id):
             selected_weight = 'ac'
             quantity = int(request.POST.get('quantity_ac', 0))
         bag[item_id] = {selected_weight: quantity}
-        messages.success(request, f'Added {product.name} ({selected_weight}) to your bag')
+        messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
     print(bag)
@@ -46,7 +46,7 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """View to allow users to make modifications to the current shopping bag"""
 
-    product = get_object_or_404(id=item_id)
+    product = get_object_or_404(Product, id=item_id)
 
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
