@@ -135,7 +135,7 @@
                 {% if product.price_ac %}
                 <div class="form-row" id="quantity_ac">
                     <div class="col-12">
-                        <p class="mt-3"><strong>Quantity (ac):</strong></p>
+                        <p class="mt-3"><strong>Quantity:</strong></p>
                         <div class="form-group w-50">
                             <div class="input-group">
                                 <input class="form-control qty_input" type="number" name="quantity_ac" value="1" min="1"
@@ -187,6 +187,8 @@
                     document.getElementById("quantity_250g").style.display = "block";
                 } else if (selectedWeight === "1kg") {
                     document.getElementById("quantity_1kg").style.display = "block";
+                } else if (selectedWeight === "ac") {
+                    document.getElementById("quantity_ac").style.display = "block";
                 }
             });
         });

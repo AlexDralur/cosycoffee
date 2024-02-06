@@ -11,27 +11,47 @@ def bag_contents(request):
 
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, id=item_id)
+        subtotal = 0
 
-        for weight, quantity in item_data.items():
-            if weight == '250g' and hasattr(product, 'price_250g') and product.price_250g is not None:
-                subtotal = quantity * product.price_250g
-            elif weight == '1kg' and hasattr(product, 'price_1kg') and product.price_1kg is not None:
-                subtotal = quantity * product.price_1kg
-            elif weight == 'ac' and hasattr(product, 'price_ac') and product.price_ac is not None:
-                subtotal = quantity * product.price_ac
-            else:
-                subtotal = 0  # Handle other cases if needed
+        if isinstance(item_data, dict):
+            for selected_weight, quantity in item_data.items():
+                if selected_weight == '250g' and hasattr(product, 'price_250g') and product.price_250g is not None:
+                    subtotal = quantity * product.price_250g
+                elif selected_weight == '1kg' and hasattr(product, 'price_1kg') and product.price_1kg is not None:
+                    subtotal = quantity * product.price_1kg
+                elif selected_weight == 'ac' and hasattr(product, 'price_ac') and product.price_ac is not None:
+                    subtotal = quantity * product.price_ac
+                else:
+                    subtotal = 0  # Handle other cases if needed
+                
+                total += subtotal
+                product_count += quantity
+
+                bag_items.append({
+                    'item_id': item_id,
+                    'weight': selected_weight,
+                    'quantity': quantity,
+                    'quantity_250g': quantity if selected_weight == '250g' else 0,
+                    'quantity_1kg': quantity if selected_weight == '1kg' else 0,
+                    'quantity_ac': quantity if selected_weight == 'ac' else 0,
+                    'product': product,
+                    'subtotal': subtotal,
+                })
+        else:
+            selected_weight = 'ac'
+            quantity = item_data
+            subtotal += quantity * product.price_ac
 
             total += subtotal
             product_count += quantity
 
             bag_items.append({
                 'item_id': item_id,
-                'weight': weight,
+                'weight': selected_weight,
                 'quantity': quantity,
-                'quantity_250g': quantity if weight == '250g' else 0,
-                'quantity_1kg': quantity if weight == '1kg' else 0,
-                'quantity_ac': quantity if weight == 'ac' else 0,
+                'quantity_250g': quantity if selected_weight == '250g' else 0,
+                'quantity_1kg': quantity if selected_weight == '1kg' else 0,
+                'quantity_ac': quantity if selected_weight == 'ac' else 0,
                 'product': product,
                 'subtotal': subtotal,
             })
