@@ -61,6 +61,10 @@ nav {
     color: #A9927D;
 }
 
+#navbarSupportedContent ul li a:active {
+    background-color: transparent;
+}
+
 /* NAVBAR SEARCH BAR ------------------*/
 /* based on simple bar from https://www.sliderrevolution.com/resources/css-search-box/ */
 
@@ -107,7 +111,7 @@ nav {
 }
 
 .allauth-body a {
-    color: #F2F4F3;
+    color: #0A0908;
     text-decoration: underline;
 }
 
