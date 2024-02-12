@@ -66,19 +66,22 @@
       </li>
     </ul>
     <form
-      class="form-inline my-2 my-lg-0"
+      class="my-2 mr-lg-0 my-lg-0 search justify-content-md-center"
       method="GET"
       action="{% url 'products' %}"
     >
       <input
-        class="form-control mr-sm-2"
-        placeholder="Search"
-        aria-label="Search"
-        name="s"
-      />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-        Search
-      </button>
+      class="form-control"
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+      id="search"
+      autocomplete="off"
+    />
+    <button type="submit" class="searchButton">
+      <i class="fa fa-search"></i>
+   </button>
     </form>
   </div>
 </nav>
+
