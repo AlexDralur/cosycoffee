@@ -1,4 +1,5 @@
 from django.db import models
+from producers.models import Producer
 
 class Category(models.Model):
 
@@ -19,8 +20,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
-    producers_name = models.TextField()
-    region = models.CharField(max_length=254, null=True, blank=True)
+    producers_name = models.ForeignKey(Producer, null=True, blank=True, on_delete=models.SET_NULL)
     notes = models.CharField(max_length=254, null=True, blank=True)
     brand = models.CharField(max_length=254, null=True, blank=True)
     variety = models.CharField(max_length=254, null=True, blank=True)

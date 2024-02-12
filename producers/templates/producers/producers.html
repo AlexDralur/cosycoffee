@@ -1,10 +1,14 @@
-{% extends "base.html" %} {% load static %} {% block page_header %}
+{% extends "base.html" %}
+{% load static %}
+{% block page_header %}
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
 </div>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
@@ -20,14 +24,100 @@
         <ul>
             {% for producer in producers %}
             <li>{{ producer.name }} - {{ producer.location }}</li>
-            {% if request.user.is_superuser %}
-            <small class="ml-3">
-                <a href="{% url 'edit_producer' producer.id %}">Edit</a> |
-                <a class="text-danger" href="{% url 'delete_producer' producer.id %}">Delete</a>
-            </small>
-            {% endif %}
             {% endfor %}
         </ul>
+
+        {% if producers.count|divisibleby:2 %}
+            <!-- Number of producers is even, show description first -->
+            {% for producer in producers %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ producer.name }}</h2>
+                    <p>{{ producer.description }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Farm Name</th>
+                                <th>Altitude</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ producer.location }}</td>
+                                <td>{{ producer.farm_name }}</td>
+                                <td>{{ producer.altitude }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{ producer.image.url }}" alt="Profile image for {{ producer.name }}" class="img-fluid">
+                </div>
+            </div>
+            {% if request.user.is_superuser %}
+            <div class="row">
+                <div class="col-md-12">
+                    <small class="ml-3">
+                        <a href="{% url 'edit_producer' producer.id %}">Edit</a> |
+                        <a class="text-danger" href="{% url 'delete_producer' producer.id %}">Delete</a>
+                    </small>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+            <!-- Number of producers is odd, show picture first -->
+            {% for producer in producers %}
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{ producer.image.url }}" alt="Profile image for {{ producer.name }}" class="img-fluid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ producer.name }}</h2>
+                    <p>{{ producer.description }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Farm Name</th>
+                                <th>Altitude</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ producer.location }}</td>
+                                <td>{{ producer.farm_name }}</td>
+                                <td>{{ producer.altitude }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% if request.user.is_superuser %}
+            <div class="row">
+                <div class="col-md-12">
+                    <small class="ml-3">
+                        <a href="{% url 'edit_producer' producer.id %}">Edit</a> |
+                        <a class="text-danger" href="{% url 'delete_producer' producer.id %}">Delete</a>
+                    </small>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
 {% endblock %}
