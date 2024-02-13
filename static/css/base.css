@@ -16,6 +16,9 @@ body {
     background-color: #F2F4F3;
     color: #0A0908;
     font-family: 'Mulish', sans-serif;
+    background: url('/media/banner.png') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
 }
 
 /* MAIN PAGE ------------------------ */
@@ -32,10 +35,38 @@ body {
     font-size: 1.2rem;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 900px) {
+    #site-categories .col-12 a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
     #site-categories {
         display: none;
     }
+}
+
+.main-banner {
+    background: url('/media/banner.png') no-repeat center fixed;
+    background-size: contain;
+    height: calc(100vh - 164px);
+}
+
+.index-text {
+    color: #F2F4F3;
+    font-weight: 800;
+}
+
+.overlay {
+    padding-top: 6rem;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
 }
 
 /* NAVBAR -------------------------- */
@@ -260,8 +291,8 @@ nav {
 }
 
 .shop-now-button {
-    background: black;
-    color: white;
+    background: #A9927D;
+    color: #0A0908;
     min-width: 260px;
 }
 
@@ -398,10 +429,6 @@ a.category-badge>span.badge:hover {
 /* -------------------------------- Media Queries */
 
 
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-
-
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
 
@@ -409,4 +436,5 @@ a.category-badge>span.badge:hover {
 .order-history {
     max-height: 416px; /*HEIGHT OF PROFILE FORM + SUBMIT BUTTON */
     overflow-y: auto;
+}
 }

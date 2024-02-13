@@ -2,5 +2,22 @@
 {% load static %}
 
 {% block content %}
-<h1 class="display-4 text-sucess">It works!</h1>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-7 col-md-6 my-auto text-center">
+            <h1 class="display-4 text-uppercase index-text">
+                new arrival
+            </h1>
+            <p class="display-5 text-uppercase index-text">Pacific Breeze Farm - Microlot</p>
+            <p class="display-5 text-uppercase index-text">
+                Kona | Hawaii | USA
+            </p>
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
