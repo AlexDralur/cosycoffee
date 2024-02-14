@@ -8,7 +8,7 @@ Cosycoffee is an e-commerce website aimed to coffee lovers. On the website, the 
 
 ## Table of contents
 
-- [**Revforum**](#revforum)
+- [**Cosy COffee**](#revforum)
   - [**Overview**](#overview)
   - [Table of contents](#table-of-contents)
   - [**Planning stage**](#planning-stage)
@@ -122,11 +122,21 @@ Cosycoffee is an e-commerce website aimed to coffee lovers. On the website, the 
 
 #### *Profile page:*
 
-- 
+- Once the user makes their first buy, their profile is automatically saved into their profile. However, the users can access and update all the details if necessary. The users also can access their previous order and check what they ordered.
 
 ![Profile screenshot]()
 
-​
+​#### *Product Management page:*
+
+- Administradors of the page have access to the product management page. In this page, they can add new products to the website. To edit and delete products, the administrator can do through the products page. Each product has their own update and delete buttons.
+
+![Producers Management screenshot]()
+
+​#### *Product Management page:*
+
+- Like the page below, administradors of the page have access to add new producers to the website. They are connected to the coffee. So, whenever a new coffee product is added, the administrator can choose from one of the producers listed.
+
+![Producers Management screenshot]()
 
 ## **Future-Enhancements**
 
