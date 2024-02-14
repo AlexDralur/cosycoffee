@@ -201,3 +201,5 @@ Resolution✅:
 ### **Content:**
 
 - Structure of the project (apps) based on the codealong project "Boutique Ado" from [CodeInstitute] (<https://github.com/Code-Institute-Org/boutique_ado_v1>)
+- Search bag based on the simple bar example from [SliderRevolution] (<https://www.sliderrevolution.com/resources/css-search-box/>)
+- Images collected from [Freepik] (<https://www.freepik.com>)
