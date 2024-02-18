@@ -77,7 +77,7 @@
                     </tbody>
                 </table>
                 {% else %}
-                <p class="mt-3">{{ product.brand }}</p>
+                <p class="mt-3"><strong>Brand:</strong> {{ product.brand }}</p>
                 {% endif %} {% if request.user.is_superuser %}
                 <small class="ml-3">
                     <a href="{% url 'edit_product' product.id %}">Edit</a> |
