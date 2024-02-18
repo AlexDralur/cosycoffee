@@ -15,6 +15,7 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
     - [**Target Audiences:**](#target-audiences)
     - [**User Stories:**](#user-stories)
     - [**Site Aims:**](#site-aims)
+    - [**Branding:**](#branding)
     - [**Forum Structure:**](#forum-structure)
   - [**Current Features**](#current-features)
       - [*Main Screen:*](#main-screen)
@@ -77,9 +78,15 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
 - To provide an excellent buying experience with information in all the steps of the buying process.
 - To allow users to sign up to the Newsletter so they can be informed of any sales, promotions or new arrivals.
 
-### **Forum Structure:**
+### **Branding:**
 
-![Cosycoffee Structure - Diagram]()
+- Consireding that coffee is a fruit and the thought of it reminds plantation, the base colours for the project were earth ones, with brown, black and white to geberate contract. For the font, Mulish was the one chosen: it is a clear, non-serif font, with sober identity that can provide easy ready.
+![Cosycoffee Branding - Colours](media/images-docs/colours_palette.png)
+
+### **Forum Structure:**
+- There are three levels of access within the e-commerce. The first is the user who is not registered in the website. They can see the products, producers, search for products, the bag, have access to the footer and also access the page to login and signup. If the user is registered, they can have access to their profile page, with their previous orders and also the checkout page. The last level is superuser, the administrator of the website, who can add products and producers. They can also edit and delete on the products and producers page.
+
+![Cosycoffee Structure - Diagram](media/images-docs/cosy_coffee_diagram.png)
 
 ## **Current Features**
 
@@ -189,6 +196,7 @@ Resolution✅:
 - Pillow.
 - Crispy-forms.
 - Stripe.
+- Mailchimp.
 ​
 
 ## **Credits**
