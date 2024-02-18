@@ -13,9 +13,9 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
-                {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" />
+                {% if product.image_url %}
+                <a href="{{ product.image_url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}" />
                 </a>
                 {% else %}
                 <a href="">
@@ -53,7 +53,7 @@
                     <tbody>
                         <tr>
                             <th scope="row">Region</th>
-                            <td>{{ product.region }}</td>
+                            <td>{{ product.producers_name.location }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Processing Method</th>
@@ -160,7 +160,7 @@
     </div>
 </div>
 {% endblock %} {% block postloadjs %} {{ block.super }}
-{% include '/workspaces/cosycoffee/products/templates/products/includes/quantity_input_script.html' %}
+{% include 'products/includes/quantity_input_script.html' %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const weightButtons = document.querySelectorAll('input[name="product_weight"]');
