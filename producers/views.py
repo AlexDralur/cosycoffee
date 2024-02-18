@@ -29,7 +29,6 @@ def add_producer(request):
             messages.error(request, 'An error occurred. Please check the form.')
     else:
         form = ProducerForm()
-    
     return render(request, 'producers/add_producer.html', {'form': form})
 
 

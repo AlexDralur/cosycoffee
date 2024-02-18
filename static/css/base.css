@@ -297,7 +297,7 @@ nav {
 }
 
 .btn-black {
-    background: black;
+    background:#A9927D;
     color: white;
 }
 
@@ -311,8 +311,8 @@ nav {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
-    color: white !important;
+    background: 0A0908;
+    color: F2F4F3 !important;
 }
 
 .shop-now-button:hover,
@@ -321,8 +321,8 @@ nav {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    background: #0A0908;
+    color: #F2F4F3;
 }
 
 .text-black {
