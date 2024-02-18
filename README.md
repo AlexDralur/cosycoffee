@@ -2,7 +2,7 @@
 
 ## **Overview**
 
-Cosycoffee is an e-commerce website aimed to coffee lovers. On the website, the users can find several options of speciality coffee beans to buy and also accessories like filters, different brewing methods and others. Once they are logged in and they make their first purchase, their shipping details are attached to their profile, so they do not need to repeat that step on a second order. They also have the chance to sign up for the newsletter.
+Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. On the website, the users can find several options of speciality coffee beans roasted by the company to buy and also accessories like filters, different brewing methods and others. Once they are logged in and they make their first purchase, their shipping details are attached to their profile, so they do not need to repeat that step on a second order. They also have the chance to sign up for the newsletter.
 
 ![Main screen screenshot]()
 
@@ -38,6 +38,7 @@ Cosycoffee is an e-commerce website aimed to coffee lovers. On the website, the 
 ### **Target Audiences:**
 
 - Users interested in coffee.
+- Users interested in coffee roasters.
 - Users interested in speciality coffee.
 - Users interested in a premium experience with coffee.
 - Users interested in having good quality coffee at their own property.
@@ -202,4 +203,6 @@ Resolution✅:
 
 - Structure of the project (apps) based on the codealong project "Boutique Ado" from [CodeInstitute] (<https://github.com/Code-Institute-Org/boutique_ado_v1>)
 - Search bag based on the simple bar example from [SliderRevolution] (<https://www.sliderrevolution.com/resources/css-search-box/>)
-- Images collected from [Freepik] (<https://www.freepik.com>)
+- Images of producers collected from [Freepik] (<https://www.freepik.com>)
+- Images of acccessories taken from each company website
+- SKUs made with [Zoho] (<https://www.zoho.com/inventory/sku-generator/>)
