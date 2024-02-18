@@ -24,13 +24,29 @@
 
     // Increment quantity
     $('.increment-qty').click(function (e) {
-        e.preventDefault();
-        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue + 1);
-        var itemId = $(this).data('item_id');
+    e.preventDefault();
+    var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+    var currentValue = parseInt($(closestInput).val());
+    $(closestInput).val(currentValue + 1);
+    var itemId = $(this).data('item_id');
+    var classList = $(this).attr('class').split(/\s+/); // Split class attribute into an array
+    var suffix = null;
+
+    // Iterate through classList to find the suffix
+    for (var i = 0; i < classList.length; i++) {
+        if (classList[i].startsWith('increment-qty_' + itemId + '_')) {
+            suffix = classList[i].replace('increment-qty_' + itemId + '_', ''); // Extract the suffix
+            break;
+        }
+    }
+
+    // Handle different cases based on the suffix
+    if (suffix === '_250g' || suffix === '_1kg' || suffix === '_ac') {
         handleEnableDisable(itemId);
-    });
+        // Additional logic specific to each case can be added here
+    }
+});
+
 
     // Decrement quantity
     $('.decrement-qty').click(function (e) {

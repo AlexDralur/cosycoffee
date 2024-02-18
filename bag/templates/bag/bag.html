@@ -38,13 +38,13 @@
 
                     {% for item in bag_items %}
                     <tr>
-                        <td class="p-3 w-25">
+                        <td class="p-3 w-5">
                             {% if item.product.image %}
-                                <a href="{% url 'product_detail' product.id %}">
+                                <a href="{% url 'product_detail' item.item_id %}">
                                     <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                 </a>
                             {% else %}
-                                <a href="{% url 'product_detail' product.id %}">
+                                <a href="{% url 'product_detail' item.item_id %}">
                                     <img class="img-fluid rounded" src="{{ MEDIA_URL }}{{ item.product.image }}" alt="{{ product.name }}">
                                 </a>
                             {% endif %}
