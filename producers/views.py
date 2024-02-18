@@ -20,7 +20,7 @@ def add_producer(request):
         return redirect(reverse('producers'))
 
     if request.method == "POST":
-        form = ProducerForm(request.POST)
+        form = ProducerForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Producer added successfully')

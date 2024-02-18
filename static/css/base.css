@@ -35,13 +35,8 @@ body {
     font-size: 1.2rem;
 }
 
-@media (max-width: 900px) {
-    #site-categories .col-12 a {
-        font-size: 1rem;
-    }
-}
 
-@media (max-width: 480px) {
+@media (max-width: 991px) {
     #site-categories {
         display: none;
     }
@@ -96,8 +91,16 @@ nav {
     background-color: transparent;
 }
 
+.management {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
 /* NAVBAR SEARCH BAR ------------------*/
-/* based on simple bar from https://www.sliderrevolution.com/resources/css-search-box/ */
 
 .search {
     position: relative;
@@ -128,6 +131,7 @@ nav {
     box-shadow: none;
     border: #A9927D;
 }
+
 
 /* ALLAUTH TEMPLATES ----------------- */
 
