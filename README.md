@@ -234,3 +234,4 @@ Resolution✅:
 - Images of acccessories taken from each company website
 - Facebook mockup structure from [Unblast] (<https://unblast.com/free-facebook-page-mockup-2022-psd/>)
 - SKUs made with [Zoho] (<https://www.zoho.com/inventory/sku-generator/>)
+- Footer HTML based on the basic footer structure from [MDBootstrap] (<https://mdbootstrap.com/docs/b4/jquery/navigation/footer/>)
