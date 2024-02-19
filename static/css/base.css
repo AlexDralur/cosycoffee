@@ -136,12 +136,13 @@ nav {
 /* ALLAUTH TEMPLATES ----------------- */
 
 .allauth-form{
-    margin: auto 30% auto 30%;
+    margin: 10% 30% auto 30%;
 }
 
 .allauth-body input:not([type="checkbox"]){
-    border: none;
+    border: 1px solid #0A0908;
     width:80%;
+    background-color: #F2F4F3;
 
 }
 
@@ -156,19 +157,19 @@ nav {
     -moz-border-radius: 10;
     border-radius: 0.625rem;
     font-family: Arial;
-    color: #F2F4F3;
+    color: #0A0908;
     font-size: 1rem;
-    background: #0A0908;
+    background: #A9927D;
     padding: 0.625rem;
-    border: solid #F2F4F3 1px;
+    border: none;
     text-decoration: none;
     width: 6rem;
 }
 
 .allauth-button:hover {
-    background: #F2F4F3;
+    background: #0A0908;
     text-decoration: none;
-    color: #0A0908;
+    color: #F2F4F3;
 }
 
 .form-signup label {
@@ -198,11 +199,10 @@ nav {
 @media (max-width: 991px) {
 
     .allauth-form {
-            margin: auto 10% auto 10%;
+            margin: 10% 10% auto 10%;
         }
     
     .allauth-body input:not([type="checkbox"]){
-            border: none;
             width: 100%;
     
         }
@@ -318,14 +318,14 @@ nav {
     min-width: 260px;
 }
 
-.btn-black {
+.btn-brown {
     background:#A9927D;
-    color: white;
+    color: #0A0908;
 }
 
 .btn-outline-black {
-    background: white;
-    color: black !important;
+    background: #F2F4F3;
+    color: #0A0908 !important;
     /* use important to override link colors for <a> elements */
     border: 1px solid black;
 }
@@ -333,16 +333,16 @@ nav {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: 0A0908;
-    color: F2F4F3 !important;
+    background: #0A0908;
+    color: #F2F4F3 !important;
 }
 
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
+.btn-brown:hover,
+.btn-brown:active,
+.btn-brown:focus {
     background: #0A0908;
     color: #F2F4F3;
 }
@@ -352,18 +352,16 @@ nav {
 }
 
 .border-black {
-    border: 1px solid black !important;
+    border: 1px solid #0A0908 !important;
 }
 
 .bg-black {
-    background: #000 !important;
+    background: #0A0908 !important;
 }
 
-
-
 a.category-badge>span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
+    background: #0A0908 !important;
+    color: #F2F4F3 !important;
 }
 
 .btt-button {
