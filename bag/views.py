@@ -44,21 +44,36 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """View to allow users to make modifications to the current shopping bag"""
+    """View to allow users to make modifications to the current shopping bag including item size"""
 
     product = get_object_or_404(Product, id=item_id)
-
     quantity = int(request.POST.get('quantity'))
+    item_size = request.POST.get('item_size')  # Get the item size from the POST request
+
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
+    if item_id in bag:
         if quantity > 0:
-            bag[item_id] = quantity
-            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+            # Check if the item_id already has a nested dictionary for sizes
+            if isinstance(bag[item_id], dict):
+                bag[item_id][item_size] = quantity
+            else:
+                # This case handles the transition from a previous structure
+                # where item_id may not have been a dict. Adjust as needed.
+                bag[item_id] = {item_size: quantity}
+            messages.success(request, f'Updated {product.name} ({item_size}) quantity to {bag[item_id][item_size]}')
         else:
-            bag.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your bag')
-    
+            # Remove the size entry. If no sizes left, remove the item entirely.
+            if item_size in bag[item_id]:
+                bag[item_id].pop(item_size)
+                if not bag[item_id]:
+                    bag.pop(item_id)
+                messages.success(request, f'Removed {product.name} ({item_size}) from your bag')
+    else:
+        # If the item_id is not in the bag, add it with the item_size and quantity
+        bag[item_id] = {item_size: quantity}
+        messages.success(request, f'Added {product.name} ({item_size}) to your bag with quantity {quantity}')
+
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 

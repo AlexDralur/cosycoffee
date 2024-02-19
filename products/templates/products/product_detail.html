@@ -107,6 +107,8 @@
                 <!-- Quantity input for 250g -->
                 {% if product.price_250g %}
                 <div class="form-row" id="quantity_250g">
+                    <!-- Hidden input for item size -->
+                    <input type="hidden" name="item_size" value="250g">
                     <div class="col-12">
                         <p class="mt-3 text-center"><strong>Quantity (250g):</strong></p>
                         <div class="form-group d-flex justify-content-center">
@@ -139,6 +141,8 @@
 
                 <!-- Quantity input for 1kg -->
                 {% if product.price_1kg %}
+                <!-- Hidden input for item size -->
+                <input type="hidden" name="item_size" value="1kg">
                 <div class="form-row" id="quantity_1kg">
                     <div class="col-12">
                         <p class="mt-3 text-center"><strong>Quantity (1kg):</strong></p>
@@ -172,6 +176,8 @@
 
                 <!-- Quantity input for ac -->
                 {% if product.price_ac %}
+                <!-- Hidden input for item size -->
+                <input type="hidden" name="item_size" value="ac">
                 <div class="form-row" id="quantity_ac">
                     <div class="col-12">
                         <p class="mt-3"><strong>Quantity:</strong></p>
