@@ -213,4 +213,5 @@ Resolution✅:
 - Search bag based on the simple bar example from [SliderRevolution] (<https://www.sliderrevolution.com/resources/css-search-box/>)
 - Images of producers collected from [Freepik] (<https://www.freepik.com>)
 - Images of acccessories taken from each company website
+- Facebook mockup structure from [Unblast] (<https://unblast.com/free-facebook-page-mockup-2022-psd/>)
 - SKUs made with [Zoho] (<https://www.zoho.com/inventory/sku-generator/>)
