@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/accounts/login/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/?category=coffee_beans</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/?category=accessories</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/producers/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/bag/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/2/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/10/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/1/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/3/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/4/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/5/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/6/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/7/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/8/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/9/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/12/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/14/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/15/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/11/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cosy-coffee-1c9a738ac216.herokuapp.com/products/product/13/</loc>
+  <lastmod>2024-02-19T23:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
