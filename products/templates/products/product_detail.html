@@ -94,12 +94,12 @@
                         <div class="buttons-type d-flex justify-content-between">
                             {% if product.price_250g %}
                             <label class="weight-option">
-                                <input type="radio" name="product_weight" value="250g"> 250g
+                                <input type="radio" name="product_weight" value="250g" onclick="toggleFormVisibility()"> 250g
                             </label>
                             {% endif %}
                             {% if product.price_1kg %}
                             <label class="weight-option">
-                                <input type="radio" name="product_weight" value="1kg"> 1kg
+                                <input type="radio" name="product_weight" value="1kg" onclick="toggleFormVisibility()"> 1kg
                             </label>
                             {% endif %}
                         </div>
@@ -116,7 +116,7 @@
                         <div class="form-group d-flex justify-content-center">
                             <div class="d-inline-flex">
                                 <div class="input-group-prepend">
-                                    <button class="decrement-qty btn  rounded-0 decrement-qty_{{ product.id }}_250g" 
+                                    <button class="decrement-qty btn  rounded-0 decrement-qty_{{ product.id }}" 
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-minus"></i>
@@ -128,7 +128,7 @@
                                         min="1" max="99" />
                                 </div>
                                 <div class="input-group-append">
-                                    <button class="increment-qty btn  rounded-0 increment-qty_{{ product.id }}_250g"
+                                    <button class="increment-qty btn  rounded-0 increment-qty_{{ product.id }}"
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-plus"></i>
@@ -151,7 +151,7 @@
                         <div class="form-group d-flex justify-content-center">
                             <div class="d-inline-flex">
                                 <div class="input-group-prepend">
-                                    <button class="decrement-qty btn  rounded-0 decrement-qty_{{ product.id }}_1kg" 
+                                    <button class="decrement-qty btn  rounded-0 decrement-qty_{{ product.id }}" 
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-minus"></i>
@@ -163,7 +163,7 @@
                                         min="1" max="99" />
                                 </div>
                                 <div class="input-group-append">
-                                    <button class="increment-qty btn  rounded-0 increment-qty_{{ product.id }}_1kg"
+                                    <button class="increment-qty btn  rounded-0 increment-qty_{{ product.id }}"
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-plus"></i>
@@ -186,7 +186,7 @@
                         <div class="form-group d-flex justify-content-center">
                             <div class="d-inline-flex">
                                 <div class="input-group-prepend">
-                                    <button class="decrement-qty btn  rounded-0 decrement-qty_{{ product.id }}_ac" 
+                                    <button class="decrement-qty btn  rounded-0 decrement-qty_{{ product.id }}" 
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-minus"></i>
@@ -198,7 +198,7 @@
                                         min="1" max="99" />
                                 </div>
                                 <div class="input-group-append">
-                                    <button class="increment-qty btn  rounded-0 increment-qty_{{ product.id }}_ac"
+                                    <button class="increment-qty btn  rounded-0 increment-qty_{{ product.id }}"
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-plus"></i>
@@ -225,39 +225,8 @@
         </div>
     </div>
 </div>
-{% endblock %} {% block postloadjs %} {{ block.super }}
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const weightButtons = document.querySelectorAll('input[name="product_weight"]');
-        const productForm = document.getElementById("productForm");
-
-        // Function to hide all quantity input sections
-        function hideAllQuantityInputs() {
-            document.getElementById("quantity_250g").style.display = "none";
-            document.getElementById("quantity_1kg").style.display = "none";
-        }
-
-        // Initially hide all quantity input sections
-        hideAllQuantityInputs();
-
-        weightButtons.forEach(function (button) {
-            button.addEventListener("change", function () {
-                const selectedWeight = this.value;
-
-                // Hide all quantity input sections
-                hideAllQuantityInputs();
-
-                // Show the quantity input section based on the selected weight
-                if (selectedWeight === "250g") {
-                    document.getElementById("quantity_250g").style.display = "block";
-                } else if (selectedWeight === "1kg") {
-                    document.getElementById("quantity_1kg").style.display = "block";
-                } else if (selectedWeight === "ac") {
-                    document.getElementById("quantity_ac").style.display = "block";
-                }
-            });
-        });
-    });
-</script>
 {% endblock %}

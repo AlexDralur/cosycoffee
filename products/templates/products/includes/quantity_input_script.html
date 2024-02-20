@@ -1,44 +1,56 @@
 <script type="text/javascript">
+    $(document).ready(function() {
+        // Hide the form initially
+        $('#quantity_250g').hide();
+        $('#quantity_1kg').hide();
 
-    // Disable +/- buttons outside 1-99 range
-    function handleEnableDisable(itemId) {
-        var currentValue = parseInt($(`#id_qty_${itemId}`).val());
-        var minusDisabled = currentValue < 2;
-        var plusDisabled = currentValue > 98;
-        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-    }
+        // Function to show/hide form based on selection
+        function toggleFormVisibility() {
+            var selectedValue = $("input[name='product_weight']:checked").val();
+            var button = $("input[type='submit']");
+            
+            // Disable "Add to Bag" button until quantity is chosen
+            button.prop('disabled', true);
 
-    // Ensure proper enabling/disabling of all inputs on page load
-    var allQtyInputs = $('.qty_input');
-    for (var i = 0; i < allQtyInputs.length; i++) {
-        var itemId = $(allQtyInputs[i]).data('item_id');
-        handleEnableDisable(itemId);
-    }
+            if (selectedValue === "250g") {
+                $('#quantity_250g').show("fast");
+                $('#quantity_1kg').hide();
+                button.prop('disabled', false);
+            } else if (selectedValue === "1kg") {
+                $('#quantity_1kg').show("fast");
+                $('#quantity_250g').hide();
+                button.prop('disabled', false);
+            } else {
+                $('#quantity_250g').hide();
+                $('#quantity_1kg').hide();
+            }
+        }
 
-    // Check enable/disable every time the input is changed
-    $('.qty_input').change(function () {
-        var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
-    });
+        // Enable "Add to Bag" button when quantity is chosen
+        $(".qty_input").change(function() {
+            if ($(this).val() > 0) {
+                $("input[type='submit']").prop('disabled', false);
+            } else {
+                $("input[type='submit']").prop('disabled', true);
+            }
+        });
 
-    // Increment quantity
-    $('.increment-qty').click(function (e) {
-        e.preventDefault();
-        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue + 1);
-        var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
-    });
+        // Increase/decrease quantity
+        $(".increment-qty, .decrement-qty").click(function() {
+            var inputField = $(this).closest(".form-group").find(".qty_input");
+            var currentValue = parseInt(inputField.val());
+            if ($(this).hasClass("increment-qty")) {
+                inputField.val(currentValue + 1);
+            } else {
+                if (currentValue > 1) {
+                    inputField.val(currentValue - 1);
+                }
+            }
+            // Trigger change event to enable/disable "Add to Bag" button
+            inputField.trigger("change");
+        });
 
-    // Decrement quantity
-    $('.decrement-qty').click(function (e) {
-        e.preventDefault();
-        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue - 1);
-        var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
+        // Initial check for form visibility
+        toggleFormVisibility();
     });
 </script>
