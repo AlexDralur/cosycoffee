@@ -24,6 +24,7 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
+            <!---Table with items in the bag--->
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
@@ -38,6 +39,7 @@
 
                     {% for item in bag_items %}
                     <tr>
+                        <!--Item image-->
                         <td class="p-3 w-5">
                             {% if item.product.image %}
                                 <a href="{% url 'product_detail' item.item_id %}">
@@ -49,6 +51,7 @@
                                 </a>
                             {% endif %}
                         </td>
+                        <!--Item description with SKU-->
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 small text-muted">
@@ -61,6 +64,7 @@
                             {% endif %}
                         </td>
                         {% if item.product.price_250g %}
+                        <!--Buttons to increase/decrease quantity of item-->
                         <td class="py-3">${{ item.product.price_250g }}</td>
                         <td class="py-3 w-25">
                             <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -89,12 +93,14 @@
                                     </div>
                                 </div>
                             </form>
+                            <!--Buttons to update items in the cart and remove-->
                             <a class="update-link text-info"><small>Update</small></a>
                             <a class="remove-item text-danger float-right"
                                 id="remove_{{ item.item_id }}"><small>Remove</small></a>
                         </td>
                         {% endif %}
                         {% if item.product.price_1kg %}
+                        <!--Logic if the product is coffee 1kg bag-->
                         <td class="py-3">${{ item.product.price_1kg }}</td>
                         <td class="py-3 w-25">
                             <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -129,6 +135,7 @@
                         </td>
                         {% endif %}
                         {% if item.product.price_ac %}
+                        <!--Logic if the product is an accessory-->
                         <td class="py-3">${{ item.product.price_ac }}</td>
                         <td class="py-3 w-25">
                             <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -168,6 +175,7 @@
                     </tr>
                     {% endfor %}
                     <tr>
+                        <!--Subtotal-->
                         <td colspan="5" class="pt-5 text-right">
                             <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
                             <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
@@ -183,6 +191,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <!--Buttons to checkout or to return to store-->
                         <td colspan="5" class="text-right">
                             <a href="{% url 'products' %}" class="btn k rounded-0 btn-lg">
                                 <span class="icon">
@@ -201,6 +210,7 @@
                 </table>
             </div>
             {% else %}
+            <!--Information if the bag is empty-->
             <p class="lead mb-5">Your bag is empty.</p>
             <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                 <span class="icon">
