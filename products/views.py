@@ -55,7 +55,7 @@ def all_products(request):
         
         # Filter microlot products if requested
         if 'microlot' in request.GET:
-        products = products.filter(microlot=True)
+            products = products.filter(microlot=True)
 
         if 's' in request.GET:
             query = request.GET['s']
