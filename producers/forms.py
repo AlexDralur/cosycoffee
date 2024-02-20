@@ -3,7 +3,7 @@ from .models import Producer
 
 
 class ProducerForm(forms.ModelForm):
-
+    """Function to create the producers form"""
     class Meta:
         model = Producer
         fields = '__all__'

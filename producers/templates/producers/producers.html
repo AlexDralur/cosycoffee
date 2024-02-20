@@ -20,7 +20,9 @@
         </div>
     </div>
     <div class="row">
+        <!--List of producers-->
         {% for producer in producers %}
+        <!--If the producers id is divisible by 2, the design is mirrored-->
         {% if forloop.counter|divisibleby:2 %}
         <div class="col-12 col-md-6">
             <div class="row">
@@ -61,6 +63,7 @@
             </div>
         </div>
         {% if request.user.is_superuser %}
+        <!--Buttons to edit and delete producers-->
         <small class="ml-3">
             <a href="{% url 'edit_producer' producer.id %}">Edit</a> |
             <a class="text-danger" href="{% url 'delete_producer' producer.id %}">Delete</a>
@@ -103,6 +106,7 @@
                         </table>
                     </div>
                     {% if request.user.is_superuser %}
+                    <!--Buttons to edit and delete producers-->
                     <small class="ml-3">
                         <a href="{% url 'edit_producer' producer.id %}">Edit</a> |
                         <a class="text-danger" href="{% url 'delete_producer' producer.id %}">Delete</a>

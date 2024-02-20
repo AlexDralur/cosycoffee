@@ -19,6 +19,7 @@
     </div>
 
     <div class="row">
+        <!--Form to add new producer-->
         <div class="col-12 col-md-6">
             <form method="POST" action="{% url 'add_producer' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
