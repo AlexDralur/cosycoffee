@@ -52,6 +52,10 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+        
+        # Filter microlot products if requested
+        if 'microlot' in request.GET:
+        products = products.filter(microlot=True)
 
         if 's' in request.GET:
             query = request.GET['s']
