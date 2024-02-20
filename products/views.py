@@ -16,6 +16,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    microlot_filter = False
 
     if request.GET:
         if 'sort' in request.GET:
@@ -56,6 +57,8 @@ def all_products(request):
         # Filter microlot products if requested
         if 'microlot' in request.GET:
             products = products.filter(microlot=True)
+            microlot_filter = True  # Set microlot_filter to True
+
 
         if 's' in request.GET:
             query = request.GET['s']
@@ -75,6 +78,7 @@ def all_products(request):
         'current_sorting': current_sorting,
         'sort': sort,
         'direction': direction,
+        'microlot_filter': microlot_filter,
     }
 
     return render(request, 'products/products.html', context)
