@@ -1,13 +1,3 @@
-/* PALETTE OF COLORS 
-
-#0A0908
-#22333B
-#F2F4F3
-#A9927D
-#5E503F
-
-*/
-
 html {
     height: 100%;
 }
@@ -33,13 +23,6 @@ body {
     color: #F2F4F3;
     font-weight: 700;
     font-size: 1.2rem;
-}
-
-
-@media (max-width: 991px) {
-    #site-categories {
-        display: none;
-    }
 }
 
 .main-banner {
@@ -116,8 +99,8 @@ nav {
     color: #fff;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
-    border-top-left-radius: 0; /* Adjust border radius */
-    border-bottom-left-radius: 0; /* Adjust border radius */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     font-size: 20px;
 }
 
@@ -196,21 +179,6 @@ nav {
     margin-right: 0;
 }
 
-@media (max-width: 991px) {
-
-    .allauth-form {
-            margin: 10% 10% auto 10%;
-        }
-    
-    .allauth-body input:not([type="checkbox"]){
-            width: 100%;
-    
-        }
-    .allauth-button{
-        margin-right: 0;
-    }
-}
-
 /* PRODUCTS ------------------------- */
 
 .text-product {
@@ -273,7 +241,9 @@ nav {
     color: #F2F4F3;
 }
 
-/* from Bulma */
+
+/* ICONS -------------------------- */
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -282,13 +252,13 @@ nav {
     width: 1.5rem;
 }
 
+/* BAG AND CHECKOUT -------------- */
+
 .logo-font {
     text-transform: uppercase;
 }
 
-.main-logo-link {
-    width: fit-content;
-}
+/* BUTTONS ----------------------- */
 
 .shop-now-button {
     background: #A9927D;
@@ -356,7 +326,7 @@ a.category-badge>span.badge:hover {
     cursor: pointer;
 }
 
-/* ------------------------------- bootstrap toasts */
+/* BOOTSTRAP TOATS --------------- */
 
 .message-container {
     position: fixed;
@@ -412,15 +382,29 @@ a.category-badge>span.badge:hover {
     overflow-y: auto;
 }
 
-/* -------------------------------- Media Queries */
-
-
-/* pad the top a bit when navbar is collapsed on mobile */
+/* MEDIA QUERIES ----------------- */
 @media (max-width: 991px) {
 
+    /* BASE ----------------- */
+    #site-categories {
+        display: none;
+    }
 
-.order-history {
-    max-height: 416px; /*HEIGHT OF PROFILE FORM + SUBMIT BUTTON */
-    overflow-y: auto;
-}
+    /* ORDER ----------------- */
+    .order-history {
+        max-height: 416px; /*HEIGHT OF PROFILE FORM + SUBMIT BUTTON */
+        overflow-y: auto;
+    }
+    /* ALLAUTH --------------- */
+    .allauth-form {
+        margin: 10% 10% auto 10%;
+    }
+
+    .allauth-body input:not([type="checkbox"]){
+        width: 100%;
+
+    }
+    .allauth-button{
+    margin-right: 0;
+    }
 }
