@@ -7,6 +7,13 @@
     color: #0A0908;
 }
 
+#profile-update-form input,
+#div_id_default_country {
+    border: 1px solid #0A0908;
+    border-radius: 5px;
+    background-color: #F2F4F3;
+}
+
 #profile-update-form input::placeholder {
     color: #F2F4F3;
 }
