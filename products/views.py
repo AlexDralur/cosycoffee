@@ -84,11 +84,22 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, id=product_id)
     
-    context = {
-        'product': product,
-    }
+    # Check if the request includes a parameter to filter microlot items
+    if request.GET.get('microlot') == 'True':
+        if product.microlot:
+            context = {
+                'product': product,
+            }
+            return render(request, 'products/product_detail.html', context)
+        else:
+            # If the product is not a microlot item, return a 404 page
+            return render(request, '404.html', status=404)
+    else:
+        context = {
+            'product': product,
+        }
+        return render(request, 'products/product_detail.html', context)
 
-    return render(request, 'products/product_detail.html', context)
 
 @login_required
 def add_product(request):
