@@ -10,3 +10,8 @@ def index(request):
 def privacy(request):
     """ This view returns the privacy page """
     return render(request, 'home/privacy.html')
+
+
+def view404(request, exception):
+    """ This view returns the privacy page """
+    return render(request, '404.html', status=404)
