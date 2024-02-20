@@ -19,6 +19,7 @@
         </div>
     </div>
     {% if microlot_filter %}
+    <!--Text if the user filters the page for microlots-->
     <div class="container">
         <div class="row mx-5 my-3 text-center">
             A coffee microlot refers to a small and meticulously cultivated batch of coffee beans from a specific part of a farm or region.
@@ -29,6 +30,7 @@
     </div>
     {% endif %}
     <div class="row">
+        <!--Selector to filter the products-->
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
@@ -67,6 +69,7 @@
                 </div>
             </div>
             <div class="row">
+                <!--Products List-->
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
