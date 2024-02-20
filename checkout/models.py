@@ -11,6 +11,7 @@ from django_countries.fields import CountryField
 # Create your models here.
 
 class Order(models.Model):
+    """Model used as base for the user to add their details to the order"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
@@ -58,6 +59,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """Update the total for each item and save"""
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(max_length=5, null=True, blank=True) #250g, 1kg or is an accessory

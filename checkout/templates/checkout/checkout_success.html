@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
+    <!--Link for extra css for Stripe section-->
     <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
 {% endblock %}
 
@@ -17,6 +18,7 @@
     <div class="row">
         <div class="col">
             <hr />
+            <!--Order summary-->
             <h2 class="logo-font mb-4">Thank you</h2>
             <hr />
             <p>Thank you for your purchase. Here is the summary of your order.
@@ -187,6 +189,7 @@
 
     <div class="row">
         <div class="col-12 col-lg-7">
+            <!--Button for profile-->
             {% if from_profile %}
                 <a href="{% url 'profile' %}" class="btn btn-brown rounded-0 my-2">
                     <span class="icon mr-2">

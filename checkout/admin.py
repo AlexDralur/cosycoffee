@@ -2,11 +2,13 @@ from django.contrib import admin
 from .models import Order, OrderLineItem
 
 class OrderLineItemAdminInLine(admin.TabularInline):
+    """Function to handle the checkout form"""
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """Function to nuilt the checkout form"""
     inlines = (OrderLineItemAdminInLine,)
 
     readonly_fields = ('order_number', 'date', 
