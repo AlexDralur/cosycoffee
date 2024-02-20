@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 
 class UserProfile(models.Model):
+    """Design of the Profile model"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_street_address_1 = models.CharField(max_length=80, null=True, blank=True)

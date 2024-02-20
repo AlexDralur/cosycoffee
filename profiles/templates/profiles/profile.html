@@ -23,6 +23,7 @@
             <hr>
             <div class="row">
                 <div class="col-12 col-lg-6">
+                    <!--Current available shipping details for the profile-->
                     <p>Default Delivery Information</p>
                     <form action="{% url 'profile' %}" class="mt-3" method="POST" id="profile-update-form">
                         {% csrf_token %}
@@ -44,6 +45,7 @@
                             </thead>
                             <tbody>
                                 {% for order in orders %}
+                                <!--Display of previous order for the profile-->
                                     <tr>
                                         <td>
                                             <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number}}">
