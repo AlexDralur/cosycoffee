@@ -29,6 +29,10 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
       - [*Shopping cart page:*](#shopping-cart-page)
       - [*Secure checkout:*](#secure-checkout)
       - [*Profile page:*](#profile-page)
+      - [*Products Management page:*](#producers-management-page)
+      - [*Producers Management page:*](#producers-management-page)
+      - [*Footer:*](#footer)
+      - [*404 page:*](#404-page)
   - [**Future-Enhancements**](#future-enhancements)
   - [**Testing Phase**](#testing-phase)
   - [**Validators**](#validators)
@@ -157,13 +161,31 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
 
 - Administradors of the page have access to the product management page. In this page, they can add new products to the website. To edit and delete products, the administrator can do through the products page. Each product has their own update and delete buttons.
 
-![Producers Management screenshot]()
+![Products Management screenshot]()
 
-​#### *Product Management page:*
+​#### *Producers Management page:*
 
 - Like the page below, administradors of the page have access to add new producers to the website. They are connected to the coffee. So, whenever a new coffee product is added, the administrator can choose from one of the producers listed.
 
 ![Producers Management screenshot]()
+
+​#### *Footer section:*
+
+- At the bottom of the page, users have the footer with a summary of the whole website and also access to the social media pages and the option to opt-in to the Newsletter.
+
+![Footer screenshot]()
+
+​#### *Privacy page:*
+
+- The page also provides a legal text regarding Privacy. User can access and to the text and what would be the use of the data provided by the user, if it was a real website.
+
+![Privacy screenshot]()
+
+​#### *404 page:*
+
+- The website also has a custom 404 page if the user uses a link that does not exist.
+
+![404 screenshot]()
 
 ## **Future-Enhancements**
 
@@ -235,3 +257,4 @@ Resolution✅:
 - Facebook mockup structure from [Unblast] (<https://unblast.com/free-facebook-page-mockup-2022-psd/>)
 - SKUs made with [Zoho] (<https://www.zoho.com/inventory/sku-generator/>)
 - Footer HTML based on the basic footer structure from [MDBootstrap] (<https://mdbootstrap.com/docs/b4/jquery/navigation/footer/>)
+- Privacy Policy made with [TermsFeed] (<https://app.termsfeed.com/>)
