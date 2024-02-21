@@ -3,10 +3,11 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def bag_contents(request):
     """Function to handle any changes within the bag
     and to adjust the subtotal accordingly"""
-    
+
     bag_items = []
     total = 0
     product_count = 0

@@ -206,6 +206,76 @@ Test: Access admin area and created new category.
 Result: New category appeared on the website.
 ***
 
+Implementation: Create new product.
+
+Test: Access Product Management page and created new category.
+
+Result: New product appeared on the website.
+***
+
+Implementation: Create new producer.
+
+Test: Access Producers Management page and created new category.
+
+Result: New producer appeared on the website.
+***
+
+Implementation: Update product.
+
+Test: Access Product edit page and made modification.
+
+Result: Modification appeared on the website.
+***
+
+Implementation: Update producer.
+
+Test: Access Producer edit page and made modification.
+
+Result: Modification appeared on the website.
+***
+
+Implementation: Delete product.
+
+Test: Click delete button of a specific product.
+
+Result: Product removed from the website.
+***
+
+Implementation: Delete producer.
+
+Test: Click delete button of a specific producer.
+
+Result: Producer removed from the website.
+***
+
+Implementation: Create new user.
+
+Test: Accessed sign up page and input information.
+
+Result: Email with confirmation sent and user created.
+***
+
+Implementation: Login to account.
+
+Test: Accessed login page and input details.
+
+Result: Access granted.
+***
+
+Implementation: 404 page.
+
+Test: Accessed non-existing address within the website.
+
+Result: Custom 404 page loaded.
+***
+
+Implementation: Shop microlot coffees.
+
+Test: Click shop now button in index page.
+
+Result: Products page filtered with microlot items.
+***
+
 ## **Validators**
 
 . Lighthouse ![Lighthouse screenshot]()
