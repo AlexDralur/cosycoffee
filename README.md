@@ -191,7 +191,7 @@ All pages passed the Lighthouse check.
 
 . W3C HTML Validator ![W3C HTML Validator screenshot]()
 
-. W3C CSS Validator ![W3C CSS Validator screenshot]()
+. W3C CSS Validator ![W3C CSS Validator screenshot](media/images-docs/cosy_coffee_css_validator.png)
 
 . Python Linter ![Python Linter Validator screenshot]()
 
