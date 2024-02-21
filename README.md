@@ -189,7 +189,7 @@ Result: New category appeared on the website.
 . Lighthouse ![Lighthouse screenshot]()
 All pages passed the Lighthouse check.
 
-. W3C HTML Validator ![W3C HTML Validator screenshot]()
+. W3C HTML Validator ![W3C HTML Validator screenshot](media/images-docs/cosy_coffee_html_validator.png)
 
 . W3C CSS Validator ![W3C CSS Validator screenshot](media/images-docs/cosy_coffee_css_validator.png)
 

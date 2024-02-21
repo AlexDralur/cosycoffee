@@ -266,13 +266,13 @@ nav {
 /* BUTTONS ----------------------- */
 
 .shop-now-button {
-    background: #A9927D;
+    background: #5E503F;
     color: #0A0908;
     min-width: 260px;
 }
 
 .btn-brown {
-    background:#A9927D;
+    background:#5E503F;
     color: #0A0908;
 }
 
@@ -280,14 +280,14 @@ nav {
     background: #F2F4F3;
     color: #0A0908 !important;
     /* use important to override link colors for <a> elements */
-    border: 1px solid black;
+    border: 1px solid #0A0908;
 }
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: #0A0908;
-    color: #F2F4F3 !important;
+    background: #A9927D;
+    color: #0A0908 !important;
 }
 
 .shop-now-button:hover,
@@ -296,12 +296,12 @@ nav {
 .btn-brown:hover,
 .btn-brown:active,
 .btn-brown:focus {
-    background: #0A0908;
-    color: #F2F4F3;
+    background: #A9927D;
+    color: #0A0908;
 }
 
 .text-black {
-    color: #000 !important;
+    color: #0A0908 !important;
 }
 
 .border-black {
@@ -313,8 +313,8 @@ nav {
 }
 
 a.category-badge>span.badge:hover {
-    background: #0A0908 !important;
-    color: #F2F4F3 !important;
+    background: #A9927D !important;
+    color: #0A0908 !important;
 }
 
 .btt-button {
