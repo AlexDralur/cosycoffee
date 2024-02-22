@@ -11,95 +11,78 @@ def view_bag(request):
 
 
 def add_to_bag(request, item_id):
-    """View to allow user to add items to the shopping bag"""
-
+    """Add a quantity of the specified product to the shopping bag"""
     product = get_object_or_404(Product, id=item_id)
+    print('quantity', request.POST)
 
-    # Get the selected weight from the POST data
-    selected_weight = request.POST.get('product_weight')
-    quantity = int(request.POST.get(f'quantity_{selected_weight}', 0))
+    # Determine which quantity input was submitted
+    if 'quantity_250g' in request.POST and request.POST['quantity_250g'] != '0':
+        quantity = int(request.POST['quantity_250g'])
+        weight = '250g'
+    elif 'quantity_1kg' in request.POST and request.POST['quantity_1kg'] != '0':
+        quantity = int(request.POST['quantity_1kg'])
+        weight = '1kg'
+    elif 'quantity_ac' in request.POST and request.POST['quantity_ac'] != '0':
+        quantity = int(request.POST['quantity_ac'])
+        weight = 'ac'
+    else:
+        # Handle the case where none of the quantity inputs were submitted
+        messages.error(request, "Invalid request.")
+        return redirect(reverse('view_bag'))
 
-    redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
     if item_id in bag:
-        # Check if the selected weight already exists in the bag
-        if selected_weight in bag[item_id]:
-            bag[item_id][selected_weight] += quantity
+        # If the item ID exists in the bag, update the quantity for the weight
+        if weight in bag[item_id]:
+            bag[item_id][weight] += quantity
         else:
-            bag[item_id][selected_weight] = quantity
-
-        messages.success(request, f'Updated {product.name} ({selected_weight}) quantity to {bag[item_id][selected_weight]}')
+            bag[item_id][weight] = quantity
     else:
-        if selected_weight is None:
-            selected_weight = 'ac'
-            quantity = int(request.POST.get('quantity_ac', 0))
-        bag[item_id] = {selected_weight: quantity}
-        messages.success(request, f'Added {product.name} to your bag')
+        # If the item ID is not in the bag, add it with the quantity for the weight
+        bag[item_id] = {weight: quantity}
 
     request.session['bag'] = bag
-    print(bag)
+    messages.success(request, f"Added {quantity} of {product.name} ({weight}) to your bag.")
+    print('bag', bag)
+    # Redirect back to the referrer
+    redirect_url = request.META.get('HTTP_REFERER', '/')
     return redirect(redirect_url)
 
 
 
 def adjust_bag(request, item_id):
-    """View to allow users to make modifications to the current shopping bag including item size"""
-
-    product = get_object_or_404(Product, id=item_id)
+    """Adjust the quantity of the specified product to the specified amount"""
     quantity = int(request.POST.get('quantity'))
-    item_size = request.POST.get('item_size')  # Get the item size from the POST request
+    weight = request.POST.get('weight', 'default')
 
     bag = request.session.get('bag', {})
 
-    if item_id in bag:
-        if quantity > 0:
-            # Check if the item_id already has a nested dictionary for sizes
-            if isinstance(bag[item_id], dict):
-                bag[item_id][item_size] = quantity
-            else:
-                # This case handles the transition from a previous structure
-                # where item_id may not have been a dict. Adjust as needed.
-                bag[item_id] = {item_size: quantity}
-            messages.success(request, f'Updated {product.name} ({item_size}) quantity to {bag[item_id][item_size]}')
-        else:
-            # Remove the size entry. If no sizes left, remove the item entirely.
-            if item_size in bag[item_id]:
-                bag[item_id].pop(item_size)
-                if not bag[item_id]:
-                    bag.pop(item_id)
-                messages.success(request, f'Removed {product.name} ({item_size}) from your bag')
-    else:
-        # If the item_id is not in the bag, add it with the item_size and quantity
-        bag[item_id] = {item_size: quantity}
-        messages.success(request, f'Added {product.name} ({item_size}) to your bag with quantity {quantity}')
+    product_key_str = f"{item_id}_{weight}"
+
+    if product_key_str in bag and quantity > 0:
+        bag[product_key_str]['quantity'] = quantity
+    elif product_key_str in bag and quantity == 0:
+        del bag[product_key_str]
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+    """View to allow users to make modifications to the current shopping bag including item size"""
 
 
 def remove_from_bag(request, item_id):
-    """View to allow users to remove item from the bag"""
+    """Remove the item from the shopping bag"""
+    weight = request.GET.get('weight', 'default')
 
-    product = get_object_or_404(Product, id=item_id)
+    bag = request.session.get('bag', {})
 
-    try:
-        if 'bag' not in request.session:
-            request.session['bag'] = {}
+    product_key_str = f"{item_id}_{weight}"
 
-        bag = request.session['bag']
-        
-        if item_id in bag:
-            # Check if any quantity exists for the item
-            if any(bag[item_id].values()):
-                # Remove the item from the bag
-                bag.pop(item_id)
-                messages.success(request, f'Removed {product.name} from your bag')
-            else:
-                messages.warning(request, f'No quantity found for {product.name} in your bag')
+    if product_key_str in bag:
+        del bag[product_key_str]
+        messages.success(request, "Removed item from your bag.")
+    else:
+        messages.error(request, "Item not in your bag.")
 
-        request.session['bag'] = bag
-        return HttpResponse(status=200)
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
-        return HttpResponse(status=500)
+    request.session['bag'] = bag
+    return redirect(reverse('view_bag'))
