@@ -241,6 +241,13 @@ nav {
     color: #F2F4F3;
 }
 
+#mc_embed_signup {
+    background: #F2F4F3;
+    clear: left;
+    font: 14px 'Mulish', sans-serif;
+    width: 400px;
+    color: #0A0908;
+}
 /* 404 ---------------------------- */
 
 .message-404{
@@ -277,13 +284,14 @@ nav {
 
 /* BUTTONS ----------------------- */
 
-.shop-now-button {
+.shop-now-button{
     background: #5E503F;
     color: #0A0908;
     min-width: 260px;
 }
 
-.btn-brown {
+.btn-brown,
+#mc-embedded-subscribe {
     background:#5E503F;
     color: #F2F4F3;
 }
@@ -297,7 +305,7 @@ nav {
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
-.btn-outline-black:focus {
+.btn-outline-black:focus{
     background: #A9927D;
     color: #0A0908 !important;
 }
@@ -307,7 +315,7 @@ nav {
 .shop-now-button:focus,
 .btn-brown:hover,
 .btn-brown:active,
-.btn-brown:focus {
+.btn-brown:focus{
     background: #A9927D;
     color: #0A0908;
 }

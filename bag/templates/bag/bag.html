@@ -56,7 +56,7 @@
                             <p class="my-0 small text-muted">Weight/Type: {{ item.weight }}</p>
                             {% endif %}
                         </td>
-                        <td class="py-3">${{ item.subtotal|div:item.quantity }}</td>
+                        <td class="py-3">${{ item.subtotal|div:item.quantity %}}</td>
                         <td class="py-3">
                             <form class="form-inline" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                 {% csrf_token %}

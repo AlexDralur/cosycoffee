@@ -29,6 +29,8 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     >
+    <!--Mailchimp CSS-->
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %} 
@@ -62,6 +64,8 @@
     <script src="https://kit.fontawesome.com/c7ffecf42a.js" crossorigin="anonymous"></script>
     <!--Stripe JS -->
     <script src="https://js.stripe.com/v3/"></script>
+    <!--Mailchimpo JS-->
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
     {% endblock %}
     
     {% block extra_js %}
@@ -129,25 +133,63 @@
 
         <!-- Grid row -->
         <div class="row">
-
+        
           <!-- Grid column -->
           <div class="col-md-6 mt-md-0 mt-3">
-
+        
             <!-- Content -->
             <h5 class="text-uppercase">Cosy Coffee</h5>
             <p>Speciality coffee from our oven straight to your house.</p>
 
+            <div id="mc_embed_shell" class="d-flex justify-content-center justify-content-md-start">
+              <div id="mc_embed_signup">
+                <form
+                  action="https://gmail.us21.list-manage.com/subscribe/post?u=ca40641d1f286cf2b471a85d5&amp;id=3740986c99&amp;f_id=00ceefe6f0"
+                  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                  target="_blank">
+                  <div id="mc_embed_signup_scroll">
+                    <h2>Subscribe to our newsletter</h2>
+                    <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span><small>(Required)</small></label><input
+                        type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+                    <div id="mce-responses" class="clear foot">
+                      <div class="response" id="mce-error-response" style="display: none;"></div>
+                      <div class="response" id="mce-success-response" style="display: none;"></div>
+                    </div>
+                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                      /* real people should not fill this in and expect good things - do not remove this or risk form bot signups
+                      */
+                      <input type="text" name="b_ca40641d1f286cf2b471a85d5_3740986c99" tabindex="-1" value="">
+                    </div>
+                    <div class="optionalParent">
+                      <div class="clear foot">
+                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                        <p style="margin: 0px auto;"><a href="http://eepurl.com/iKzXUg"
+                            title="Mailchimp - email marketing made easy and fun"><span
+                              style="display: inline-block; background-color: transparent; border-radius: 4px;"><img
+                                class="refferal_badge"
+                                src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
+                                alt="Intuit Mailchimp"
+                                style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        
           </div>
+        
           <!-- Grid column -->
-
+        
           <hr class="clearfix w-100 d-md-none pb-3">
-
+        
           <!-- Grid column -->
           <div class="col-md-3 mb-md-0 mb-3">
-
+        
             <!-- Links -->
             <h5 class="text-uppercase font-weight-bolder">Site Sections</h5>
-
+        
             <ul class="list-unstyled">
               <li>
                 <a href="{% url 'products' %}">All Products</a>
@@ -159,34 +201,38 @@
                 <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
               </li>
             </ul>
-
+        
           </div>
           <!-- Grid column -->
-
+        
           <!-- Grid column -->
           <div class="col-md-3 mb-md-0 mb-3 social-media">
-
+        
             <!-- Links -->
             <h5 class="text-uppercase font-weight-bolder">Social Media</h5>
-
+        
             <ul class="list-inline mt-3">
               <li class="list-inline-item">
-                  <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                <a href="https://facebook.com" target="_blank" rel="noopener"
+                  aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook fa-2x"></i></a>
               </li>
               <li class="list-inline-item">
-                  <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener"
+                  aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter fa-2x"></i></a>
               </li>
               <li class="list-inline-item">
-                  <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube fa-2x"></i></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener"
+                  aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube fa-2x"></i></a>
               </li>
               <li class="list-inline-item">
-                  <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener"
+                  aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram fa-2x"></i></a>
               </li>
             </ul>
-
+        
           </div>
           <!-- Grid column -->
-
+        
         </div>
         <!-- Grid row -->
 
@@ -204,3 +250,22 @@
     </footer>
   </body>
 </html>
+
+<script type = "text/javascript" > (function($) {
+  window.fnames = new Array();
+  window.ftypes = new Array();
+  fnames[0] = 'EMAIL';
+  ftypes[0] = 'email';
+  fnames[1] = 'FNAME';
+  ftypes[1] = 'text';
+  fnames[2] = 'LNAME';
+  ftypes[2] = 'text';
+  fnames[3] = 'ADDRESS';
+  ftypes[3] = 'address';
+  fnames[4] = 'PHONE';
+  ftypes[4] = 'phone';
+  fnames[5] = 'BIRTHDAY';
+  ftypes[5] = 'birthday';
+}(jQuery));
+var $mcj = jQuery.noConflict(true);
+</script>
