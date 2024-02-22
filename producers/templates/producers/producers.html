@@ -57,7 +57,7 @@
                     <img class="img-fluid" src="{{ producer.image_url }}" alt="{{ producer.name }}">
                     <!-- Else show the fallback image -->
                     {% else %}
-                    <img class="img-fluid" src="{{ MEDIA_URL }}default.webp" alt="{{ producer.name }}">
+                    <img class="img-fluid" src="{{ MEDIA_URL }}{{ producer.image }}" alt="{{ producer.name }}">
                     {% endif %}
                 </div>
             </div>

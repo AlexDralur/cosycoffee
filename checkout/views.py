@@ -63,8 +63,8 @@ def checkout(request):
                             order_line_item = OrderLineItem(
                             order=order,
                             product=product,
-                            product_size=size,  # Save the product size
-                            quantity=quantity,  # Save the quantity
+                            product_size=size,
+                            quantity=quantity, 
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
@@ -93,7 +93,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(intent)
         order_form = OrderForm()
 
     if not stripe_public_key:
@@ -167,7 +166,6 @@ def checkout_success(request, order_number):
 
         del request.session['bag']  # Clear the bag from session after checkout
 
-        print(context)
         return render(request, 'checkout/checkout_success.html', context)
     else:
         messages.error(request, 'Bag not found in session.')

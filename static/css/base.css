@@ -136,10 +136,6 @@ nav {
 
 .allauth-button{
     margin-right: 20%;
-    -webkit-border-radius: 10;
-    -moz-border-radius: 10;
-    border-radius: 0.625rem;
-    font-family: Arial;
     color: #0A0908;
     font-size: 1rem;
     background: #A9927D;
@@ -159,7 +155,8 @@ nav {
     width: 100%;
 }
 
-.form-signup input {
+.form-signup input,
+#payment-form fieldset .form-group input {
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);

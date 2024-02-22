@@ -43,7 +43,6 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
     messages.success(request, f"Added {quantity} of {product.name} ({weight}) to your bag.")
-    print('bag', bag)
     # Redirect back to the referrer
     redirect_url = request.META.get('HTTP_REFERER', '/')
     return redirect(redirect_url)
@@ -59,7 +58,6 @@ def adjust_bag(request, item_id):
     if item_id in bag and weight in bag[item_id]:
         bag[item_id][weight] = quantity
     
-    print('current bag', bag)
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 

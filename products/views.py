@@ -25,23 +25,12 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-
             if sortkey == 'category':
                 sorkey = 'category__name'
-
-            if sortkey == 'price_ac_asc':
-                sortkey = 'price_ac'
-            elif sortkey == 'price_ac_desc':
-                sortkey = '-price_ac'
-            elif sortkey == 'price_250g_asc':
-                sortkey = 'price_250g'
-            elif sortkey == 'price_250g_desc':
-                sortkey = '-price_250g'
             elif sortkey == 'rates_asc':
                 sortkey = 'rates'
             elif sortkey == 'rates_desc':
                 sortkey = '-rates'
-
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -69,7 +58,7 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query)
             products = products.filter(queries)
     
-    current_sorting = f'{sort}_{direction}'
+        current_sorting = f'{sort}_{direction}'
     
     context = {
         'products': products,
@@ -82,6 +71,7 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
 
 def product_detail(request, product_id):
     """ This view show the details of the product when user clicks on it """

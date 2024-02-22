@@ -38,24 +38,12 @@
                         <select id="sort-selector"
                             class="custom-select custom-select-sm rounded-0 border border-{% if sort or direction %}info{% else %}black{% endif %}">
                             <option value="reset" {% if not sort and not direction %}selected{% endif %}>Sort by...</option>
-                            <option value="price_ac_asc" {% if 'price_ac_asc' in current_sorting %}selected{% endif %}>Price Accessories
-                                (low to high)</option>
-                            <option value="price_ac_desc" {% if 'price_ac_desc' in current_sorting %}selected{% endif %}>Price Accessories
-                                (high to low)</option>
-                            <option value="price_250g_asc" {% if 'price_250g_asc' in current_sorting %}selected{% endif %}>Price Coffee
-                                Beans (low to high)</option>
-                            <option value="price_250g_desc" {% if 'price_250g_desc' in current_sorting %}selected{% endif %}>Price Coffee
-                                Beans (high to low)</option>
                             <option value="rates_asc" {% if 'rates_asc' in current_sorting %}selected{% endif %}>Rating (low to high)
                             </option>
                             <option value="rates_desc" {% if 'rates_desc' in current_sorting %}selected{% endif %}>Rating (high to low)
                             </option>
                             <option value="name_asc" {% if 'name_asc' in current_sorting %}selected{% endif %}>Name (A-Z)</option>
                             <option value="name_desc" {% if 'name_desc' in current_sorting %}selected{% endif %}>Name (Z-A)</option>
-                            <option value="category_asc" {% if 'category_asc' in current_sorting %}selected{% endif %}>Category (A-Z)
-                            </option>
-                            <option value="category_desc" {% if 'category_desc' in current_sorting %}selected{% endif %}>Category (Z-A)
-                            </option>
                         </select>
                     </div>
                 </div>

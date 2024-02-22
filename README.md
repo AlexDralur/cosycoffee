@@ -1,4 +1,4 @@
-# **Revforum**
+# **CosyCoffee**
 
 ## **Overview**
 
@@ -22,17 +22,21 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
         - [*Newsletter*](#newsletter)
         - [*Social media*](#social-media)
     - [**Forum Structure:**](#forum-structure)
-  - [**Current Features**](#current-features)
-      - [*Main Screen:*](#main-screen)
-      - [*Products page:*](#products-page)
-      - [*Product detail page:*](#product-detail-page)
-      - [*Shopping cart page:*](#shopping-cart-page)
-      - [*Secure checkout:*](#secure-checkout)
-      - [*Profile page:*](#profile-page)
-      - [*Products Management page:*](#producers-management-page)
-      - [*Producers Management page:*](#producers-management-page)
-      - [*Footer:*](#footer)
-      - [*404 page:*](#404-page)
+    - [**Current Features**](#current-features)
+        - [*Main Screen:*](#main-screen)
+        - [*Products page:*](#products-page)
+        - [*Product detail page:*](#product-detail-page)
+        - [*Recipes page:*](#recipes-page)
+        - [*Recipe detail page:*](#recipe-detail-page)
+        - [*Shopping cart page:*](#shopping-cart-page)
+        - [*Secure checkout:*](#secure-checkout)
+        - [*Profile page:*](#profile-page)
+        - [*Producers page:*](#producers-page)
+        - [*Products Management page:*](#product-management-page)
+        - [*Producers Management page:*](#producers-management-page)
+        - [*Recipes Management page:*](#recipes-management-page)
+        - [*Footer:*](#footer-section)
+        - [*404 page:*](#404-page)
   - [**Future-Enhancements**](#future-enhancements)
   - [**Testing Phase**](#testing-phase)
   - [**Validators**](#validators)
@@ -124,64 +128,84 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
   . Carousel with the main products available.
   . Footer with connection to social media profiles.
 
-![Main screen screenshot]()
+![Main screen screenshot](media/images-docs/main_page_screenshot.png)
 
 #### *Products page:*
 
-- Once the user/visitor clicks in one of the products links, the page of the products is shown. It provides the image, name, the price and the rate of the product.
+- Once the user/visitor clicks in one of the products links, the page of the products is shown. It provides the image, name, the price and the rate of the product.The page can also be filtered by microlot coffees and accessories.
 
-![Product page screenshot]()
+![Product page screenshot](media/images-docs/products_page_screenshot.png)
+![Product page microlot screenshot](media/images-docs/products_microlot_screenshot.png)
+![Product page accessories screenshot](media/images-docs/products_accessories_screenshot.png)
 
 #### *Product detail page:*
 
 - When the user clicks at any of the products, they are redirect to the information of the product. They have more details of each product and can choose to add to their shopping cart the quantity they desire of the product.
 
-![Product detail screenshot]()
+![Product detail screenshot](media/images-docs/product_detail_screenshot.png)
+
+#### *Recipes page:*
+
+- The user also has access a some recipes that the e-commerce provides. Aiming to create a close relantionship with the customers, the idea is to promote coffee and also to provide the knowledge so that the customers can really enjoy the coffee they are acquiring.
+
+![Recipes page screenshot](media/images-docs/recipes_screenshot.png)
+
+#### *Recipe detail page:*
+
+- Once the user accesses the page for the chosen brewing method, he has a table with contains what is needed prior to making the coffee, like amount of coffee, water, etc. They also have the information of how many cups that specific recipe would result. There is also a description on how to prepare the cup.
+
+![Recipe detail screenshot](media/images-docs/recipe_detail_screenshot.png)
 
 #### *Shopping cart page:*
 
 - If the user clicks on the shopping cart at the navbar, the user can access their current order. They will have a list of the items, with their quantity, how much each individual item will cost and if they have free shipping or not. If they have not reached the threshold, the website inform the user how much more they need to add to the car to be able to have free delivery.
 
-![Shopping cart screenshot]()
+![Shopping cart screenshot](media/images-docs/bag_screenshot.png)
 
 #### *Secure checkout:*
 
 - When the user decides to make the payment, they are taken to the page where they can add their shipping/billing information. If they are not logged in, the website requests them to login or to sign up. They are not able to pay for an order without an account. This is a marketing decision, so that every sell can bring a new lead for the list of users and for the newsletter. Once the payment is finalised, they are informed that the order was made and that they will received an email with the confirmation soon.
  
-![Secure checkout screenshot]()
-![Order succeeded screenshot]()
+![Secure checkout screenshot](media/images-docs/secure_checkout_screenshot.png)
+![Order succeeded screenshot](media/images-docs/order_successful_screenshot.png)
 
 #### *Profile page:*
 
 - Once the user makes their first buy, their profile is automatically saved into their profile. However, the users can access and update all the details if necessary. The users also can access their previous order and check what they ordered.
 
-![Profile screenshot]()
+![Profile screenshot](media/images-docs/profile_page_screenshot.png)
 
-​#### *Product Management page:*
+#### *Product Management page:*
 
 - Administradors of the page have access to the product management page. In this page, they can add new products to the website. To edit and delete products, the administrator can do through the products page. Each product has their own update and delete buttons.
 
-![Products Management screenshot]()
+![Products Management screenshot](media/images-docs/product_management_screenshot.png)
 
-​#### *Producers Management page:*
+#### *Producers Management page:*
 
-- Like the page below, administradors of the page have access to add new producers to the website. They are connected to the coffee. So, whenever a new coffee product is added, the administrator can choose from one of the producers listed.
+- Like the page above, administradors of the page have access to add new producers to the website. They are connected to the coffee. So, whenever a new coffee product is added, the administrator can choose from one of the producers listed.
 
-![Producers Management screenshot]()
+![Producers Management screenshot](media/images-docs/producers_management_screenshot.png)
 
-​#### *Footer section:*
+#### *Recipes Management page:*
+
+- Like the previous ones, administradors of the page have access to add new recipes to the website.
+
+![Producers Management screenshot](media/images-docs/recipes_management_screenshot.png)
+
+#### *Footer section:*
 
 - At the bottom of the page, users have the footer with a summary of the whole website and also access to the social media pages and the option to opt-in to the Newsletter.
 
-![Footer screenshot]()
+![Footer screenshot](media/images-docs/footer_screenshot.png)
 
-​#### *Privacy page:*
+#### *Privacy page:*
 
 - The page also provides a legal text regarding Privacy. User can access and to the text and what would be the use of the data provided by the user, if it was a real website.
 
-![Privacy screenshot]()
+![Privacy screenshot](media/images-docs/privacy_screenshot.png)
 
-​#### *404 page:*
+#### *404 page:*
 
 - The website also has a custom 404 page if the user uses a link that does not exist.
 
@@ -191,7 +215,9 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
 
 ​
 
-- Users could log through their social networks profiles (FB, X).
+- Users log through their social networks profiles (FB, X).
+- Users leave their own ratings instead of the rates given by the company.
+- Users be able to share their own coffee recipes.
 
 ​
 
@@ -289,11 +315,46 @@ All pages passed the Lighthouse check.
 
 ## **Bugs**
 
-Problem 🐞: 
+Problem 🐞: Add_to_bag view was not funcionting properly.
 
-Cause🛠: 
+Cause🛠: Information being passed was not clear.
 
-Resolution✅: 
+Resolution✅: Create hidden input button so the correct information could be retrieved.
+***
+
+Problem 🐞: Bag was not rendering correct the products.
+
+Cause🛠: Item being added to bag incorrectly.
+
+Resolution✅: Change view code.
+***
+
+Problem 🐞: Bag page would not show the price for the item.
+
+Cause🛠: Product model contains the three possible prices, depending of the weight (if coffee) or if it is an accessory.
+
+Resolution✅: Added MathFilters library to allow division to be applied in Django template.
+***
+
+Problem 🐞: Remove button would not remove item.
+
+Cause🛠: Weight variable was being rewritten after being retrieved by the view.
+
+Resolution✅: Removed variable being called.
+***
+
+Problem 🐞: Checkout success page not returning with the total.
+
+Cause🛠: View and model were not handling the information being passed.
+
+Resolution✅: Changed the dictionary being created to allow the information to be read properly.
+***
+
+Problem 🐞: 400 error with Stripe Webhook.
+
+Cause🛠: SECRET_WH_KEY not added to scope.
+
+Resolution✅: Added key to scope.
 ***
 
 ## **Deployment**
