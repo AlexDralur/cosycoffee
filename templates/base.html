@@ -2,274 +2,249 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    >
-    <!-- Description and keywords -->
-    <meta name="description"
-        content="Cosy Coffee is a coffee roaster with a e-commerce for coffee lovers in the search of the perfect coffee bean.">
-    <meta name="keywords" content="coffee, speciality coffee, coffee beans, fairtrade coffee, brewing coffee, brewing method.">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-    {% endblock %} 
-    
-    {% block extra_meta %} 
-    {% endblock %} 
-    
-    {% block corecss %}
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    >
-    <!--Mailchimp CSS-->
-    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% endblock %} 
 
-    {% block googlefonts %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
-        rel="stylesheet">
-    {% endblock %}
+<head>
+  {% block meta %}
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Description and keywords -->
+  <meta name="description"
+    content="Cosy Coffee is a coffee roaster with a e-commerce for coffee lovers in the search of the perfect coffee bean.">
+  <meta name="keywords"
+    content="coffee, speciality coffee, coffee beans, fairtrade coffee, brewing coffee, brewing method.">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+  {% endblock %}
 
-    {% block extra_css %}
-    {% endblock %}
-    
-    {% block corejs %}
-    <!--Mailchimpo JS-->
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-    <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/c7ffecf42a.js" crossorigin="anonymous"></script>
-    <!--Stripe JS -->
-    <script src="https://js.stripe.com/v3/"></script>
-    {% endblock %}
-    
-    {% block extra_js %}
-    {% endblock %}
+  {% block extra_meta %}
+  {% endblock %}
 
-    <title>Cosy Coffee {% block extra_title %}{% endblock %}</title>
-  </head>
+  {% block corecss %}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!--Mailchimp CSS-->
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% endblock %}
 
-  <body>
-    <header class="container-fluid fixed-top"></header>
+  {% block googlefonts %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
+    rel="stylesheet">
+  {% endblock %}
 
-    <div id="delivery-banner" class="row text-center">
-      <div class="col bg-black text-white">
-        <h4 class="logo-font my-1">
-          Free delivery on orders over ${{ free_delivery_threshold }}!
-        </h4>
+  {% block extra_css %}
+  {% endblock %}
+
+  {% block corejs %}
+  <!-- jQuery, Popper.js, Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/c7ffecf42a.js" crossorigin="anonymous"></script>
+  <!--Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+  {% endblock %}
+
+  {% block extra_js %}
+  {% endblock %}
+
+  <title>Cosy Coffee {% block extra_title %}{% endblock %}</title>
+</head>
+
+<body>
+  <header class="container-fluid fixed-top"></header>
+
+  <div id="delivery-banner" class="row text-center">
+    <div class="col bg-black text-white">
+      <h4 class="logo-font my-1">
+        Free delivery on orders over ${{ free_delivery_threshold }}!
+      </h4>
+    </div>
+  </div>
+
+  {% include 'includes/main-nav.html' %}
+
+  <div id="site-categories">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-around">
+        <a href="{% url 'products' %}">All Products</a>
+        <a href="{% url 'products' %}?category=coffee_beans">Coffee Beans</a>
+        <a href="{% url 'products' %}?category=accessories">Accessories</a>
+        <a href="{% url 'producers' %}">Meet our producers</a>
+        <a href="{% url 'recipes' %}">Coffee Recipes</a>
       </div>
     </div>
+  </div>
 
-    {% include 'includes/main-nav.html' %}
-    
-    <div id="site-categories">
+  {% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'includes/toasts/toast_error.html' %}
+    {% elif level == 30 %}
+    {% include 'includes/toasts/toast_warning.html' %}
+    {% elif level == 25 %}
+    {% include 'includes/toasts/toast_success.html' %}
+    {% else %}
+    {% include 'includes/toasts/toast_info.html' %}
+    {% endif %}
+    {% endwith %}
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% block page_header %}
+  {% endblock %}
+  {% block content %}
+  {% endblock %}
+  {% block postloadjs %}
+  <script>
+    $('.toast').toast('show');
+  </script>
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
       <div class="row">
-        <div class="col-12 d-flex justify-content-around">
-            <a href="{% url 'products' %}">All Products</a>
-            <a href="{% url 'products' %}?category=coffee_beans">Coffee Beans</a>
-            <a href="{% url 'products' %}?category=accessories">Accessories</a>
-            <a href="{% url 'producers' %}">Meet our producers</a>
-            <a href="{% url 'recipes' %}">Coffee Recipes</a>
-        </div>
-      </div>
-    </div>
 
-    {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast_success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
-            {% endwith %}
-        {% endfor %}
-    </div>
-    {% endif %} 
-    {% block page_header %}
-    {% endblock %}
-    {% block content %}
-    {% endblock %} 
-    {% block postloadjs %}
-    <script>
-        $('.toast').toast('show');
-    </script>
-    {% endblock %}
-  
-    <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
 
-      <!-- Footer Links -->
-      <div class="container-fluid text-center text-md-left">
+          <!-- Content -->
+          <h5 class="text-uppercase">Cosy Coffee</h5>
+          <p>Speciality coffee from our oven straight to your house.</p>
 
-        <!-- Grid row -->
-        <div class="row">
-        
-          <!-- Grid column -->
-          <div class="col-md-6 mt-md-0 mt-3">
-        
-            <!-- Content -->
-            <h5 class="text-uppercase">Cosy Coffee</h5>
-            <p>Speciality coffee from our oven straight to your house.</p>
-
-            <div id="mc_embed_shell" class="d-flex justify-content-center justify-content-md-start">
-              <div id="mc_embed_signup">
-                <form
-                  action="https://gmail.us21.list-manage.com/subscribe/post?u=ca40641d1f286cf2b471a85d5&amp;id=3740986c99&amp;f_id=00ceefe6f0"
-                  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                  target="_blank">
-                  <div id="mc_embed_signup_scroll">
-                    <h2>Subscribe to our newsletter</h2>
-                    <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span><small>(Required)</small></label><input
-                        type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
-                    <div id="mce-responses" class="clear foot">
-                      <div class="response" id="mce-error-response" style="display: none;"></div>
-                      <div class="response" id="mce-success-response" style="display: none;"></div>
-                    </div>
-                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                      /* real people should not fill this in and expect good things - do not remove this or risk form bot signups
-                      */
-                      <input type="text" name="b_ca40641d1f286cf2b471a85d5_3740986c99" tabindex="-1" value="">
-                    </div>
-                    <div class="optionalParent">
-                      <div class="clear foot">
-                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
-                        <p style="margin: 0px auto;"><a href="http://eepurl.com/iKzXUg"
-                            title="Mailchimp - email marketing made easy and fun"><span
-                              style="display: inline-block; background-color: transparent; border-radius: 4px;"><img
-                                class="refferal_badge"
-                                src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
-                                alt="Intuit Mailchimp"
-                                style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
-                        </p>
-                      </div>
+          <div id="mc_embed_shell" class="d-flex justify-content-center justify-content-md-start">
+            <div id="mc_embed_signup">
+              <form
+                action="https://gmail.us21.list-manage.com/subscribe/post?u=ca40641d1f286cf2b471a85d5&amp;id=3740986c99&amp;f_id=00ceefe6f0"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self"
+                novalidate="">
+                <div id="mc_embed_signup_scroll">
+                  <h2>Subscribe</h2>
+                  <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                  <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input
+                      type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+                  <div id="mce-responses" class="clear foot">
+                    <div class="response" id="mce-error-response" style="display: none;"></div>
+                    <div class="response" id="mce-success-response" style="display: none;"></div>
+                  </div>
+                  <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                    /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                    <input type="text" name="b_ca40641d1f286cf2b471a85d5_3740986c99" tabindex="-1" value="">
+                  </div>
+                  <div class="optionalParent">
+                    <div class="clear foot">
+                      <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                      <p style="margin: 0px auto;"><a href="http://eepurl.com/iKzXUg"
+                          title="Mailchimp - email marketing made easy and fun"><span
+                            style="display: inline-block; background-color: transparent; border-radius: 4px;"><img
+                              class="refferal_badge"
+                              src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
+                              alt="Intuit Mailchimp"
+                              style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
+                      </p>
                     </div>
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
-        
           </div>
-        
-          <!-- Grid column -->
-        
-          <hr class="clearfix w-100 d-md-none pb-3">
-        
-          <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
-        
-            <!-- Links -->
-            <h5 class="text-uppercase font-weight-bolder">Site Sections</h5>
-        
-            <ul class="list-unstyled">
-              <li>
-                <a href="{% url 'products' %}">All Products</a>
-              </li>
-              <li>
-                <a href="{% url 'producers' %}">Meet Our Producers</a>
-              </li>
-              <li>
-                <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="{% url 'recipes' %}">Coffee Recipes</a>
-              </li>
-            </ul>
-        
-          </div>
-          <!-- Grid column -->
-        
-          <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3 social-media">
-        
-            <!-- Links -->
-            <h5 class="text-uppercase font-weight-bolder">Social Media</h5>
-        
-            <ul class="list-inline mt-3">
-              <li class="list-inline-item">
-                <a href="https://facebook.com" target="_blank" rel="noopener"
-                  aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook fa-2x"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://twitter.com" target="_blank" rel="noopener"
-                  aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter fa-2x"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://youtube.com" target="_blank" rel="noopener"
-                  aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube fa-2x"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://instagram.com" target="_blank" rel="noopener"
-                  aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram fa-2x"></i></a>
-              </li>
-            </ul>
-        
-          </div>
-          <!-- Grid column -->
-        
         </div>
-        <!-- Grid row -->
+
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+          <!-- Links -->
+          <h5 class="text-uppercase font-weight-bolder">Site Sections</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="{% url 'products' %}">All Products</a>
+            </li>
+            <li>
+              <a href="{% url 'producers' %}">Meet Our Producers</a>
+            </li>
+            <li>
+              <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="{% url 'recipes' %}">Coffee Recipes</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3 social-media">
+
+          <!-- Links -->
+          <h5 class="text-uppercase font-weight-bolder">Social Media</h5>
+
+          <ul class="list-inline mt-3">
+            <li class="list-inline-item">
+              <a href="https://facebook.com" target="_blank" rel="noopener"
+                aria-label="Visit our Facebook page (opens in a new tab)"><i
+                  class="fa-brands fa-facebook fa-2x"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com" target="_blank" rel="noopener"
+                aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter fa-2x"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://youtube.com" target="_blank" rel="noopener"
+                aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube fa-2x"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://instagram.com" target="_blank" rel="noopener"
+                aria-label="Visit our Instagram page (opens in a new tab)"><i
+                  class="fa-brands fa-instagram fa-2x"></i></a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
 
       </div>
-      <!-- Footer Links -->
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
 
 
-      <!-- Copyright -->
-      <div class="row">
-        <div class="col-12 d-flex pt-5 justify-content-center">
-            <p class="small text-light">Copyright &copy; {% now "Y" %} Cosy Coffee<br>
-            Disclaimer: For educational purposes only. No orders will be processed.</p>
-        </div>
+    <!-- Copyright -->
+    <div class="row">
+      <div class="col-12 d-flex pt-5 justify-content-center">
+        <p class="small text-light">Copyright &copy; {% now "Y" %} Cosy Coffee<br>
+          Disclaimer: For educational purposes only. No orders will be processed.</p>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+  <!--Mailchimp JS-->
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 </html>
 
-<script type = "text/javascript" > (function($) {
-  window.fnames = new Array();
-  window.ftypes = new Array();
-  fnames[0] = 'EMAIL';
-  ftypes[0] = 'email';
-  fnames[1] = 'FNAME';
-  ftypes[1] = 'text';
-  fnames[2] = 'LNAME';
-  ftypes[2] = 'text';
-  fnames[3] = 'ADDRESS';
-  ftypes[3] = 'address';
-  fnames[4] = 'PHONE';
-  ftypes[4] = 'phone';
-  fnames[5] = 'BIRTHDAY';
-  ftypes[5] = 'birthday';
-}(jQuery));
-var $mcj = jQuery.noConflict(true);
-</script>
+

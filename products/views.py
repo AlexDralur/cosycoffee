@@ -58,7 +58,7 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query)
             products = products.filter(queries)
     
-        current_sorting = f'{sort}_{direction}'
+    current_sorting = f'{sort}_{direction}'
     
     context = {
         'products': products,
