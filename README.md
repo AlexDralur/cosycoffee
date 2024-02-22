@@ -209,7 +209,7 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
 
 - The website also has a custom 404 page if the user uses a link that does not exist.
 
-![404 screenshot]()
+![404 screenshot](media/images-docs/404_page_screenshot.png)
 
 ## **Future-Enhancements**
 
