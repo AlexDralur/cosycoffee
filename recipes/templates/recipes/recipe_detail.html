@@ -39,6 +39,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2>{{ recipe.brewing_type }}</h2>
+                            <p>Serves {{ recipe.cups }} cup{% if recipe.cups != 1%}s{% else %}{% endif %}</p>
                             <div class="table-responsive mt-5">
                                 <table class="table">
                                     <thead>
