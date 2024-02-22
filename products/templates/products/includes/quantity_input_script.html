@@ -10,11 +10,15 @@
         if (selectedValue === "250g") {
             $('#quantity_250g').show("fast");
             $('#quantity_1kg').hide();
+            if ($('#quantity_250g .qty_input').val() > 0) {
             button.prop('disabled', false);
+            }
         } else if (selectedValue === "1kg") {
             $('#quantity_1kg').show("fast");
             $('#quantity_250g').hide();
+            if ($('#quantity_1kg .qty_input').val() > 0) {
             button.prop('disabled', false);
+            }
         } else {
             $('#quantity_250g').hide();
             $('#quantity_1kg').hide();
