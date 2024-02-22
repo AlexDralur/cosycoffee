@@ -27,7 +27,7 @@ def add_recipe(request):
         return redirect(reverse('recipes'))
 
     if request.method == "POST":
-        form = ProducerForm(request.POST, request.FILES)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Recipe added successfully')
@@ -47,7 +47,7 @@ def edit_recipe(request, recipe_id):
         messages.error(request, 'Access not permitted.')
         return redirect('recipes')
     
-    producer = get_object_or_404(Recipe, id=recipe_id)
+    recipe = get_object_or_404(Recipe, id=recipe_id)
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
@@ -57,7 +57,7 @@ def edit_recipe(request, recipe_id):
         else:
             messages.error(request, 'Failed to update recipe. Please check the form.')
     else:
-        form = ReciperForm(instance=recipe)
+        form = RecipeForm(instance=recipe)
         messages.info(request, f'You are editing {recipe.brewing_type}')
 
     template = 'recipes/edit_recipe.html'
@@ -76,7 +76,7 @@ def delete_recipe(request, recipe_id):
         messages.error(request, 'Access not permitted.')
         return redirect(reverse('home'))
 
-    producer = get_object_or_404(Producer, id=recipe_id)
-    producer.delete()
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    recipe.delete()
     messages.success(request, 'Recipe deleted!')
     return redirect('recipes')

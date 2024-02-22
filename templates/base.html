@@ -47,6 +47,8 @@
     {% endblock %}
     
     {% block corejs %}
+    <!--Mailchimpo JS-->
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -64,8 +66,6 @@
     <script src="https://kit.fontawesome.com/c7ffecf42a.js" crossorigin="anonymous"></script>
     <!--Stripe JS -->
     <script src="https://js.stripe.com/v3/"></script>
-    <!--Mailchimpo JS-->
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
     {% endblock %}
     
     {% block extra_js %}
@@ -94,6 +94,7 @@
             <a href="{% url 'products' %}?category=coffee_beans">Coffee Beans</a>
             <a href="{% url 'products' %}?category=accessories">Accessories</a>
             <a href="{% url 'producers' %}">Meet our producers</a>
+            <a href="{% url 'recipes' %}">Coffee Recipes</a>
         </div>
       </div>
     </div>
