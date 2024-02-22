@@ -57,27 +57,33 @@ def adjust_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if item_id in bag and weight in bag[item_id]:
-        # Update the quantity for the specified weight
         bag[item_id][weight] = quantity
-
+    
+    print('current bag', bag)
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
 
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
-    weight = request.GET.get('weight', 'default')
+    """Remove the specified quantity of a weight from the shopping bag"""
+    weight = request.GET.get('weight')
 
     bag = request.session.get('bag', {})
 
-    product_key_str = f"{item_id}_{weight}"
-
-    if product_key_str in bag:
-        del bag[product_key_str]
-        messages.success(request, "Removed item from your bag.")
+    if item_id in bag and weight in bag[item_id]:
+        # Reduce the quantity of the specified weight to 0
+        bag[item_id][weight] = 0
+        messages.success(request, f"Removed {weight} from the item in your bag.")
+        # If the weight is now 0, delete it from the bag
+        if bag[item_id][weight] == 0:
+            del bag[item_id][weight]
+        # If the item has no more weights, remove the item from the bag
+        if not bag[item_id]:
+            del bag[item_id]
     else:
-        messages.error(request, "Item not in your bag.")
+        messages.error(request, f"Weight '{weight}' not found for the item or item not found in your bag.")
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+

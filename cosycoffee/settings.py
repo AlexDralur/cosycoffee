@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'producers',
     'crispy_forms',
     'storages',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

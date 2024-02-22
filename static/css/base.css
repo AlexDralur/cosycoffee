@@ -271,6 +271,10 @@ nav {
     text-transform: uppercase;
 }
 
+.img-bag {
+    width: 10rem;
+}
+
 /* BUTTONS ----------------------- */
 
 .shop-now-button {
@@ -281,7 +285,7 @@ nav {
 
 .btn-brown {
     background:#5E503F;
-    color: #0A0908;
+    color: #F2F4F3;
 }
 
 .btn-outline-black {
