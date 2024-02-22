@@ -14,7 +14,7 @@ def bag_contents(request):
         if isinstance(item_data, dict):
             # Iterate over weights and quantities in the item_data dictionary
             for weight, quantity in item_data.items():
-                # Convert quantity to int if needed (it should already be an int)
+                # Convert quantity to int if needed
                 if isinstance(quantity, str):
                     quantity = int(quantity)
 

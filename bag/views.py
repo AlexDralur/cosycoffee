@@ -13,7 +13,6 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """Add a quantity of the specified product to the shopping bag"""
     product = get_object_or_404(Product, id=item_id)
-    print('quantity', request.POST)
 
     # Determine which quantity input was submitted
     if 'quantity_250g' in request.POST and request.POST['quantity_250g'] != '0':
@@ -50,24 +49,20 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 
-
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
     quantity = int(request.POST.get('quantity'))
-    weight = request.POST.get('weight', 'default')
+    weight = request.POST.get('product_weight')
 
     bag = request.session.get('bag', {})
 
-    product_key_str = f"{item_id}_{weight}"
-
-    if product_key_str in bag and quantity > 0:
-        bag[product_key_str]['quantity'] = quantity
-    elif product_key_str in bag and quantity == 0:
-        del bag[product_key_str]
+    if item_id in bag and weight in bag[item_id]:
+        # Update the quantity for the specified weight
+        bag[item_id][weight] = quantity
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
-    """View to allow users to make modifications to the current shopping bag including item size"""
+
 
 
 def remove_from_bag(request, item_id):
