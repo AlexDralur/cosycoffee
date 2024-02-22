@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <a href="{% url 'remove_from_bag' item.item_id %}" class="text-danger">Remove</a>
+                            <a href="{% url 'remove_from_bag' item.item_id item.weight %}" class="text-danger">Remove</a>
                         </td>
                         <td class="py-3">${{ item.subtotal }}</td>
                     </tr>

@@ -65,10 +65,8 @@ def adjust_bag(request, item_id):
 
 
 
-def remove_from_bag(request, item_id):
+def remove_from_bag(request, item_id, weight):
     """Remove the specified quantity of a weight from the shopping bag"""
-    weight = request.GET.get('weight')
-
     bag = request.session.get('bag', {})
 
     if item_id in bag and weight in bag[item_id]:
