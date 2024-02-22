@@ -357,6 +357,13 @@ Cause🛠: SECRET_WH_KEY not added to scope.
 Resolution✅: Added key to scope.
 ***
 
+Problem 🐞: Button Add to Cart allowing to be clicked if input had quantity 0.
+
+Cause🛠: The function did not specify to block button if quantity was 0.
+
+Resolution✅: Add if statement to logic.
+***
+
 ## **Deployment**
 
 ## **Tech**
