@@ -68,14 +68,18 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """Override the original save method to set 
-        the lineitem total and update the order total"""
+        the line item total and update the order total"""
 
-        if self.product.price_250g:
+        if self.product_size == '250g' and self.product.price_250g:
             self.lineitem_total = self.product.price_250g * self.quantity
-        elif self.product.price_1kg:
+        elif self.product_size == '1kg' and self.product.price_1kg:
             self.lineitem_total = self.product.price_1kg * self.quantity
-        elif self.product.price_ac:
+        elif self.product_size == 'ac' and self.product.price_ac:
             self.lineitem_total = self.product.price_ac * self.quantity
+        else:
+            # Handle case where product size doesn't match any available price
+            self.lineitem_total = Decimal('0.00')
+
         super().save(*args, **kwargs)
 
     def __str__(self):

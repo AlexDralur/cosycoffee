@@ -58,13 +58,15 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
+                    if isinstance(item_data, dict):
+                        for size, quantity in item_data.items():
+                            order_line_item = OrderLineItem(
                             order=order,
                             product=product,
-                            quantity=item_data,
-                        )
-                        order_line_item.save()
+                            product_size=size,  # Save the product size
+                            quantity=quantity,  # Save the quantity
+                    )
+                    order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products added to the bag was not found.")
@@ -112,11 +114,11 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        #Attach the user's profile to the order
+        # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
 
-    #Save the user's info
+    # Save the user's info
     if save_info:
         profile_data = {
             'default_phone_number': order.phone_number,
@@ -131,16 +133,42 @@ def checkout_success(request, order_number):
         if user_profile_form.is_valid():
             user_profile_form.save()
 
-    messages.success(request, f'Order completed. Thank you for shopping with you.\
+    messages.success(request, f'Order completed. Thank you for shopping with us. \
          You will receive a confirmation email soon. \
          Your order number is {order_number}')
 
     if 'bag' in request.session:
-        del request.session['bag']
+        bag = request.session['bag']
+        bag_items = []
+        for item_id, item_data in bag.items():
+            product = get_object_or_404(Product, pk=item_id)
+            for weight, quantity in item_data.items():
+                subtotal = getattr(product, f'price_{weight}') * quantity
+                bag_items.append({
+                    'product': product,
+                    'quantity': quantity,
+                    'weight': weight,
+                    'subtotal': subtotal
+                })
 
-    template = 'checkout/checkout_success.html'
-    context = {
-        'order': order,
-    }
+        total = order.order_total
+        delivery = order.delivery_cost
+        grand_total = order.grand_total
+        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total if total < settings.FREE_DELIVERY_THRESHOLD else 0
 
-    return render(request, template, context)
+        context = {
+            'order': order,
+            'bag_items': bag_items,
+            'total': total,
+            'delivery': delivery,
+            'grand_total': grand_total,
+            'free_delivery_delta': free_delivery_delta,
+        }
+
+        del request.session['bag']  # Clear the bag from session after checkout
+
+        print(context)
+        return render(request, 'checkout/checkout_success.html', context)
+    else:
+        messages.error(request, 'Bag not found in session.')
+        return redirect(reverse('products'))
