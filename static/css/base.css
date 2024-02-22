@@ -282,6 +282,10 @@ nav {
     width: 10rem;
 }
 
+.n_align {
+    text-align: right;
+}
+
 /* BUTTONS ----------------------- */
 
 .shop-now-button{
