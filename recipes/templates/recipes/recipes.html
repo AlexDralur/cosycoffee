@@ -23,7 +23,7 @@
         <div class="product-container col-10 offset-1">
             <div class="row">
                 <!--Products List-->
-                {% for recipe in recipe %}
+                {% for recipe in recipes %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                         {% if recipe.image %}
@@ -46,7 +46,6 @@
                                         <a href="{% url 'edit_recipe' recipe.id %}">Edit</a> |
                                         <a href="{% url 'delete_recipe' recipe.id %}" class="text-danger">Delete</a>
                                     </small>
-                                    {% endif %}
                                 </div>
                             </div>
                         </div>
