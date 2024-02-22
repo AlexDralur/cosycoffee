@@ -21,57 +21,59 @@
     <div class="row">
         <!--Selector to filter the products-->
         <div class="product-container col-10 offset-1">
-            <div class="row">
+            <div class="row mt-5">
                 <!--Products List-->
-                {% for recipe in recipes %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 border-0">
-                        {% if recipe.image %}
-                        <a href="{% url 'recipe_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ recipe.image.url }}" alt="{{ recipe.brewing_type }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'recipe_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ recipe.image }}"
-                                alt="{{ recipe.brewing_type }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-0">
-                            <p class="mb-0 text-product">{{ recipe.brewing_type }}</p>
-                        </div>
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="ml-3">
-                                        <a href="{% url 'edit_recipe' recipe.id %}">Edit</a> |
-                                        <a href="{% url 'delete_recipe' recipe.id %}" class="text-danger">Delete</a>
-                                    </small>
-                                </div>
-                            </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            {% if recipe.image_url %}
+                            <img class="img-fluid" src="{{ recipe.image_url }}" alt="{{ recipe.brewing_type }}">
+                            <!-- Else show the fallback image -->
+                            {% else %}
+                            <img class="img-fluid" src="{{ MEDIA_URL }}{{ recipe.image }}" alt="{{ recipe.brewing_type }}">
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:1 %}
-                <div class="col-12 d-sm-none mb-5">
-                    <hr>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>{{ recipe.brewing_type }}</h2>
+                            <div class="table-responsive mt-5">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Coffee Quantity</th>
+                                            <th>Water Quantity</th>
+                                            <th>Grinding size</th>
+                                            <th>Optional Items</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ recipe.coffee_quantity }}g</td>
+                                            <td>{{ recipe.water_quantity }}ml</td>
+                                            <td>{{ recipe.grinding_size }}</td>
+                                            <td>Scale and timer</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="mt-3 mb-3">
+                                {% for item in description_list %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
+                            </p>
+                            {% if request.user.is_superuser %}
+                            <!--Buttons to edit and delete producers-->
+                            <small class="ml-3">
+                                <a href="{% url 'edit_recipe' recipe.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_recipe' recipe.id %}">Delete</a>
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:3 %}
-                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:4 %}
-                <div class="col-12 d-none d-xl-block mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% endfor %}
             </div>
         </div>
     </div>

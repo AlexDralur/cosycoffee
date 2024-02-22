@@ -15,7 +15,8 @@ def all_recipes(request):
 def recipe_detail(request, recipe_id):
     """View to display details of a specific recipe"""
     recipe = get_object_or_404(Recipe, id=recipe_id)
-    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
+    description_list = recipe.description.split('\n')
+    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe, 'description_list': description_list})
 
 
 @login_required
