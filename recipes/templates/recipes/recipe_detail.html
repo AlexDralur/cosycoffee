@@ -19,16 +19,15 @@
         </div>
     </div>
     <div class="row">
-        <!--Selector to filter the products-->
         <div class="product-container col-10 offset-1">
             <div class="row mt-5">
-                <!--Products List-->
+                <!--Recipe Details-->
                 <div class="col-12 col-md-6">
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             {% if recipe.image_url %}
                             <img class="img-fluid" src="{{ recipe.image_url }}" alt="{{ recipe.brewing_type }}">
-                            <!-- Else show the fallback image -->
+                            <!-- Else show the local image -->
                             {% else %}
                             <img class="img-fluid" src="{{ MEDIA_URL }}{{ recipe.image }}" alt="{{ recipe.brewing_type }}">
                             {% endif %}
@@ -66,7 +65,7 @@
                                 {% endfor %}
                             </p>
                             {% if request.user.is_superuser %}
-                            <!--Buttons to edit and delete producers-->
+                            <!--Buttons to edit and delete recipe-->
                             <small class="ml-3">
                                 <a href="{% url 'edit_recipe' recipe.id %}">Edit</a> |
                                 <a class="text-danger" href="{% url 'delete_recipe' recipe.id %}">Delete</a>

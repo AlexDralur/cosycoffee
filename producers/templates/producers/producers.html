@@ -55,7 +55,7 @@
                 <div class="col-md-12">
                     {% if producer.image_url %}
                     <img class="img-fluid" src="{{ producer.image_url }}" alt="{{ producer.name }}">
-                    <!-- Else show the fallback image -->
+                    <!-- Else show the local image -->
                     {% else %}
                     <img class="img-fluid" src="{{ MEDIA_URL }}{{ producer.image }}" alt="{{ producer.name }}">
                     {% endif %}
@@ -77,7 +77,7 @@
                     <img class="img-fluid" src="{{ producer.image_url }}" alt="{{ producer.name }}">
                     <!-- Else show the fallback image -->
                     {% else %}
-                    <img class="img-fluid" src="{{ MEDIA_URL }}default.webp" alt="{{ producer.name }}">
+                    <img class="img-fluid" src="{{ MEDIA_URL }}{{ producer.image }}" alt="{{ producer.name }}">
                     {% endif %}
                 </div>
             </div>
