@@ -21,7 +21,8 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
         - [*Keywords*](#keywords)
         - [*Newsletter*](#newsletter)
         - [*Social media*](#social-media)
-    - [**Forum Structure:**](#forum-structure)
+    - [**Cosy Coffee Structure:**](#forum-structure)
+    - [**Database Models:**](#database-models)
     - [**Current Features**](#current-features)
         - [*Main Screen:*](#main-screen)
         - [*Products page:*](#products-page)
@@ -65,22 +66,29 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
 - As a user, I want to sign in.
 - As a user, I want to sign out.
 - As a user, I want to reset my password.
-- As a user, I want to be able to modify my password if I am logged in.
 - As a user, I want to see all the available coffees/accessories.
 - As a user, I want to search all the available coffees/accessories.
 - As a user, I want to see more details of each coffee/accessory.
+- As a user, I want to see the producers of the coffee beans.
+- As a user, I want to see the recipes of the coffee beans.
 - As a user, I want to add the coffee/accessory to the cart.
 - As a user, I want to check my current shopping cart.
 - As a user, I want to add or remove the quantity of items in the shopping cart.
-- As a user, I want to add or remove items of the shopping cart.
+- As a user, I want to remove items of the shopping cart.
 - As a user, I want to know how much is order at any specific time.
 - As a user, I want to add my shipping and billing addresses.
 - As a user, I want to know how much would be the shipping cost.
 - As a user, I want to add my payment details.
+- As an user, I want to see the orders I made on website.
 - As an admin, I want to add coffee/accessories to the website.
 - As an admin, I want to update coffee/accessories information on the website.
 - As an admin, I want to remove coffee/accessories from the website.
-- As an admin, I want the orders made on website.
+- As an admin, I want to add producers to the website.
+- As an admin, I want to update the producers information on the website.
+- As an admin, I want to remove the producers from the website.
+- As an admin, I want to add recipes to the website.
+- As an admin, I want to update the recipes information on the website.
+- As an admin, I want to remove the recipes from the website.
 ​
 
 ### **Site Aims:**
@@ -110,10 +118,15 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
 - Like the Newsletter, Social Media is a necessary point of contact for any company that wants not only to have clients but brandlovers. Brandlovers are especially important for situations for when crysis occur. They can be a way to prevent or to come back easily from a bad situtation, brandwise. Based on a BrandPersona study the best ones can be chosen. Since coffee has a lot to do with visual and feeling, Facebook, Instagram and Tiktok would be highly recommended.
 ![Cosycoffee Branding - Facebook](media/images-docs/facebook_mockup.png)
 
-### **Forum Structure:**
+### **Cosy Coffee Structure:**
 - There are three levels of access within the e-commerce. The first is the user who is not registered in the website. They can see the products, producers, search for products, the bag, have access to the footer and also access the page to login and signup. If the user is registered, they can have access to their profile page, with their previous orders and also the checkout page. The last level is superuser, the administrator of the website, who can add products and producers. They can also edit and delete on the products and producers page.
 
 ![Cosycoffee Structure - Diagram](media/images-docs/cosy_coffee_diagram.png)
+
+### **Database models:**
+- The models were created with DrawQSL.
+
+![Database models - Diagram](media/images-docs/database_models_screenshot.png)
 
 ## **Current Features**
 
