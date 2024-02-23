@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Recipe(models.Model):
     """Recipe Model"""
     brewing_type = models.CharField(max_length=254, null=True, blank=True)

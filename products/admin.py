@@ -5,6 +5,7 @@ from .models import Category, Product
 
 admin.site.register(Category)
 
+
 class ProductAdmin(admin.ModelAdmin):
     """Function to display the form in the order selected"""
     list_display = (
@@ -16,5 +17,6 @@ class ProductAdmin(admin.ModelAdmin):
         'price_1kg',
         'price_ac',
     )
+
 
 admin.site.register(Product, ProductAdmin)

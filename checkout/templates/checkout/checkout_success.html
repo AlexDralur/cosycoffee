@@ -59,14 +59,20 @@
                             </div>
                         </div>
             
-                        {% for item in bag_items %}
+                        {% if item in bag_items %}
                         <div class="row">
                             <div class="col-12 d-flex justify-content-center">
                                 <p class="small mr-3">{{ item.product }}</p>
                                 <p class="small mb-0">{{ item.quantity }} ({{ item.weight }}) @ ${{ item.subtotal|div:item.quantity }} each</p>
                             </div>
                         </div>
-                        {% endfor %}
+                        {% else %}
+                            {% for item in order.lineitems.all %}
+                            <li class="small">
+                                {{ item.product.name }} ({{ item.product_size }}) x {{ item.quantity }} @ ${{ item.lineitem_total|div:item.quantity }}
+                            </li>
+                            {% endfor %}
+                        {% endif %}
             
                         <div class="row">
                             <div class="col">

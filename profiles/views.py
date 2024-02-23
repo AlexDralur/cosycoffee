@@ -6,6 +6,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
 
+
 @login_required
 def profile(request):
     """Display user's profile"""
@@ -18,7 +19,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Failed to update profile. please check the information provided.')
+            messages.error(request, 'Failed to update profile. \
+            Please check the information provided.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()

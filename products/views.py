@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
 def all_products(request):
     """ This view show all products, including sorting and searches """
 
@@ -38,16 +39,15 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-        if  'category' in request.GET:
+        if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-        
+
         # Filter microlot products if requested
         if 'microlot' in request.GET:
             products = products.filter(microlot=True)
             microlot_filter = True  # Set microlot_filter to True
-
 
         if 's' in request.GET:
             query = request.GET['s']
@@ -55,11 +55,13 @@ def all_products(request):
                 messages.error(request, 'No text was typed on the search')
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query)
+            queries = Q(
+                name__icontains=query) | Q(
+                    description__icontains=query) | Q(brand__icontains=query)
             products = products.filter(queries)
-    
+
     current_sorting = f'{sort}_{direction}'
-    
+
     context = {
         'products': products,
         'search_term': query,
@@ -77,13 +79,13 @@ def product_detail(request, product_id):
     """ This view show the details of the product when user clicks on it """
 
     product = get_object_or_404(Product, id=product_id)
-    
+
     context = {
         'product': product,
     }
 
     return render(request, 'products/product_detail.html', context)
-    
+
 
 @login_required
 def add_product(request):
@@ -97,9 +99,10 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully added product!')
-            return(redirect('product_detail', product_id=product.id))
+            return (redirect('product_detail', product_id=product.id))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid')
+            messages.error(request, 'Failed to add product. \
+            Please ensure the form is valid')
     else:
         form = ProductForm()
     template = 'products/add_product.html'
@@ -108,6 +111,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -122,9 +126,11 @@ def edit_product(request, product_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Product updated successfully!")
-            return(redirect('product_detail', product_id=product.id))
+            return (redirect('product_detail', product_id=product.id))
         else:
-            messages.error(request, 'Failed to update product. Place check all the fields.')
+            messages.error(
+                request, 'Failed to update product. \
+                Place check all the fields.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -136,6 +142,7 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_product(request, product_id):

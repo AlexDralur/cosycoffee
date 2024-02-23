@@ -6,6 +6,7 @@ from .forms import RecipeForm
 
 # Create your views here.
 
+
 def all_recipes(request):
     """A view to allow the user to see the recipes available"""
     recipes = Recipe.objects.all()
@@ -16,7 +17,9 @@ def recipe_detail(request, recipe_id):
     """View to display details of a specific recipe"""
     recipe = get_object_or_404(Recipe, id=recipe_id)
     description_list = recipe.description.split('\n')
-    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe, 'description_list': description_list})
+    return render(
+        request, 'recipes/recipe_detail.html',
+        {'recipe': recipe, 'description_list': description_list})
 
 
 @login_required
@@ -34,7 +37,8 @@ def add_recipe(request):
             messages.success(request, 'Recipe added successfully')
             return redirect('recipes')
         else:
-            messages.error(request, 'An error occurred. Please check the form.')
+            messages.error(
+                request, 'An error occurred. Please check the form.')
     else:
         form = RecipeForm()
     return render(request, 'recipes/add_recipe.html', {'form': form})
@@ -47,16 +51,17 @@ def edit_recipe(request, recipe_id):
     if not request.user.is_superuser:
         messages.error(request, 'Access not permitted.')
         return redirect('recipes')
-    
+
     recipe = get_object_or_404(Recipe, id=recipe_id)
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
             messages.success(request, "Recipe updated successfully!")
-            return(redirect('recipes'))
+            return (redirect('recipes'))
         else:
-            messages.error(request, 'Failed to update recipe. Please check the form.')
+            messages.error(request, 'Failed to update recipe. \
+            Please check the form.')
     else:
         form = RecipeForm(instance=recipe)
         messages.info(request, f'You are editing {recipe.brewing_type}')

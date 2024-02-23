@@ -1,4 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    get_object_or_404,
+    HttpResponse
+)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -11,6 +17,7 @@ from profiles.models import UserProfile
 
 import stripe
 import json
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -27,7 +34,7 @@ def cache_checkout_data(request):
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment was not processed. \
-            Sorry for the inconvenience. Please try again later.') 
+            Sorry for the inconvenience. Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
@@ -61,12 +68,12 @@ def checkout(request):
                     if isinstance(item_data, dict):
                         for size, quantity in item_data.items():
                             order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            product_size=size,
-                            quantity=quantity, 
-                    )
-                    order_line_item.save()
+                                order=order,
+                                product=product,
+                                product_size=size,
+                                quantity=quantity,
+                            )
+                            order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products added to the bag was not found.")
@@ -75,15 +82,19 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your details. Please double check all the fields.')
+            messages.error(
+                request,
+                'There was an error with your details. \
+                Please double check all the fields.')
 
     else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, 'No items are currently in the bag')
-            return redirect (reverse('products'))
+            return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
@@ -105,6 +116,7 @@ def checkout(request):
         'client_secret': intent.client_secret,
     }
     return render(request, template, context)
+
 
 def checkout_success(request, order_number):
     """Handle successful checkouts"""
@@ -132,7 +144,8 @@ def checkout_success(request, order_number):
         if user_profile_form.is_valid():
             user_profile_form.save()
 
-    messages.success(request, f'Order completed. Thank you for shopping with us. \
+    messages.success(
+        request, f'Order completed. Thank you for shopping with us. \
          You will receive a confirmation email soon. \
          Your order number is {order_number}')
 
@@ -153,7 +166,9 @@ def checkout_success(request, order_number):
         total = order.order_total
         delivery = order.delivery_cost
         grand_total = order.grand_total
-        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total if total < settings.FREE_DELIVERY_THRESHOLD else 0
+        free_delivery_delta = (
+            settings.FREE_DELIVERY_THRESHOLD - total
+            if total < settings.FREE_DELIVERY_THRESHOLD else 0)
 
         context = {
             'order': order,
@@ -164,7 +179,7 @@ def checkout_success(request, order_number):
             'free_delivery_delta': free_delivery_delta,
         }
 
-        del request.session['bag']  # Clear the bag from session after checkout
+        del request.session['bag']
 
         return render(request, 'checkout/checkout_success.html', context)
     else:

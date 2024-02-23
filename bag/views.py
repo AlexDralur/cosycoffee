@@ -20,7 +20,7 @@ def add_to_bag(request, item_id):
     """Add a quantity of the specified product to the shopping bag"""
     product = get_object_or_404(Product, id=item_id)
 
-    '''Determine which quantity input was submitted'''
+    # Determine which quantity input was submitted
     if ('quantity_250g' in request.POST
             and request.POST['quantity_250g'] != '0'):
         quantity = int(request.POST['quantity_250g'])
@@ -34,23 +34,20 @@ def add_to_bag(request, item_id):
         quantity = int(request.POST['quantity_ac'])
         weight = 'ac'
     else:
-        '''Handle the case where none
-        of the quantity inputs were submitted'''
+        # Handle the case where none of the quantity inputs were submitted
         messages.error(request, "Invalid request.")
         return redirect(reverse('view_bag'))
 
     bag = request.session.get('bag', {})
 
     if item_id in bag:
-        '''If the item ID exists in the bag,
-        update the quantity for the weight'''
+        # If the item ID exists in the bag, update the quantity for the weight
         if weight in bag[item_id]:
             bag[item_id][weight] += quantity
         else:
             bag[item_id][weight] = quantity
     else:
-        '''If the item ID is not in the bag,
-        add it with the quantity for the weight'''
+        # If the item ID is not in the bag, add it with the weight
         bag[item_id] = {weight: quantity}
 
     request.session['bag'] = bag

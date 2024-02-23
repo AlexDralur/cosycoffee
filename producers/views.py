@@ -4,11 +4,13 @@ from django.contrib.auth.decorators import login_required
 from .models import Producer
 from .forms import ProducerForm
 
+
 def producers(request):
     """ This view returns the producers page """
 
     producers = Producer.objects.all()
-    return render(request, 'producers/producers.html', {'producers': producers})
+    return render(
+        request, 'producers/producers.html', {'producers': producers})
 
 
 @login_required
@@ -26,7 +28,8 @@ def add_producer(request):
             messages.success(request, 'Producer added successfully')
             return redirect('producers')
         else:
-            messages.error(request, 'An error occurred. Please check the form.')
+            messages.error(
+                request, 'An error occurred. Please check the form.')
     else:
         form = ProducerForm()
     return render(request, 'producers/add_producer.html', {'form': form})
@@ -39,16 +42,17 @@ def edit_producer(request, producer_id):
     if not request.user.is_superuser:
         messages.error(request, 'Access not permitted.')
         return redirect('producers')
-    
+
     producer = get_object_or_404(Producer, id=producer_id)
     if request.method == 'POST':
         form = ProducerForm(request.POST, request.FILES, instance=producer)
         if form.is_valid():
             form.save()
             messages.success(request, "Producer updated successfully!")
-            return(redirect('producers'))
+            return (redirect('producers'))
         else:
-            messages.error(request, 'Failed to update producer. Please check the form.')
+            messages.error(request, 'Failed to update producer. \
+            Please check the form.')
     else:
         form = ProducerForm(instance=producer)
         messages.info(request, f'You are editing {producer.name}')
@@ -60,6 +64,7 @@ def edit_producer(request, producer_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_producer(request, producer_id):
