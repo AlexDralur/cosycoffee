@@ -364,6 +364,20 @@ Cause🛠: The function did not specify to block button if quantity was 0.
 Resolution✅: Add if statement to logic.
 ***
 
+Problem 🐞: 500 error when user tried to sign up on the website.
+
+Cause🛠: Requirements.txt was not matching the template of the project.
+
+Resolution✅: Corrected requirements.txt file.
+***
+
+Problem 🐞: Order history page would not show items of the order.
+
+Cause🛠: The loop on the template was not considering the saved information.
+
+Resolution✅: Add logic to loop through the saved items.
+***
+
 ## **Deployment**
 
 ## **Tech**
