@@ -40,12 +40,14 @@
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
+                                {% if request.user.is_superuser %}
                                 <div class="col">
                                     <small class="ml-3">
                                         <a href="{% url 'edit_recipe' recipe.id %}">Edit</a> |
                                         <a href="{% url 'delete_recipe' recipe.id %}" class="text-danger">Delete</a>
                                     </small>
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
