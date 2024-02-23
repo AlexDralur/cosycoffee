@@ -25,8 +25,45 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
+            <!--View for small screens-->
+            <div class="d-block d-md-none">
+                <div class="row">
+                    <div class="col">
+                        {% include "bag/bag-total.html" %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col my-3">
+                        {% include "bag/checkout-buttons.html" %}
+                        <p class="text-muted my-4">A summary of your bag contents is below</p>
+                    </div>
+                </div>
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "bag/product-image.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "bag/product-info.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 order-sm-last">
+                            <p class="my-0">Price Each: $${{ item.subtotal|div:item.quantity }}</p>
+                            <p><strong>Subtotal: </strong>${{ item.subtotal }}</p>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            {% include "bag/quantity-form.html" %}
+                        </div>
+                    </div>
+                    <div class="row"><div class="col"><hr></div></div>
+                {% endfor %}
+                <div class="btt-button shadow-sm rounded-0 border border-black">
+                    <a class="btt-link d-flex h-100">
+                        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                    </a>	
+                </div>
+            </div>
             <!--Table with items in the bag-->
-            <div class="table-responsive rounded">
+            <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
@@ -60,7 +97,7 @@
                         <td class="py-3">
                             <form class="form-inline d-flex justify-content-center" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                 {% csrf_token %}
-                                <div class="d-lg-inline-flex d-md-column align-items-start">
+                                <div class="d-lg-inline-flex d-md-column align-items-start quantity-bag">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-brown rounded-0 decrement-qty_{{ product.id }}" 
                                             data-item_id="{{ product.id }}">
@@ -70,8 +107,7 @@
                                         </button>
                                     </div>
                                     <input type="hidden" name="product_weight" value="{{ item.weight }}">
-                                        <input class="form-control form-control-sm qty_input n_align" type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99">
-                                    </div>
+                                    <input class="form-control form-control-sm qty_input n_align" type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-brown rounded-0 increment-qty_{{ product.id }}"
                                             data-item_id="{{ product.id }}">
@@ -109,7 +145,7 @@
                     <tr>
                         <!--Buttons to checkout or to return to store-->
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn k rounded-0 btn-lg">
+                            <a href="{% url 'products' %}" class="btn keep-btn rounded-0 btn-lg">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
@@ -128,7 +164,7 @@
             {% else %}
             <!--Information if the bag is empty-->
             <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+            <a href="{% url 'products' %}" class="btn keep-btn rounded-0 btn-lg mb-3">
                 <span class="icon">
                     <i class="fas fa-chevron-left"></i>
                 </span>
@@ -148,7 +184,7 @@
         // Increment quantity
         $(".increment-qty").click(function(e) {
             e.preventDefault(); // Prevent default button behavior
-            var inputField = $(this).closest("td").find(".qty_input");
+            var inputField = $(this).closest(".row").find(".qty_input");
             var currentValue = parseInt(inputField.val(), 10);
             if (!isNaN(currentValue) && currentValue < 99) { // Assuming 99 is the max value
                 inputField.val(currentValue + 1);
@@ -158,7 +194,7 @@
         // Decrement quantity
         $(".decrement-qty").click(function(e) {
             e.preventDefault(); // Prevent default button behavior
-            var inputField = $(this).closest("td").find(".qty_input");
+            var inputField = $(this).closest(".row").find(".qty_input");
             var currentValue = parseInt(inputField.val(), 10);
             if (!isNaN(currentValue) && currentValue > 1) {
                 inputField.val(currentValue - 1);
@@ -166,5 +202,6 @@
         });
     });
 </script>
+
 
 {% endblock %}

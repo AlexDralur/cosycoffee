@@ -1,0 +1,35 @@
+<form class="container" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+    {% csrf_token %}
+    <div class="row quantity-bag">
+        <div class="col p-0">
+            <div class="input-group-prepend">
+                <button class="decrement-qty btn btn-brown rounded-0 decrement-qty_{{ product.id }}" 
+                    data-item_id="{{ product.id }}">
+                    <span class="icon">
+                        <i class="fas fa-minus"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="col">
+            <input type="hidden" name="product_weight" value="{{ item.weight }}">
+            <input class="form-control form-control-sm qty_input n_align" type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99">
+        </div>
+        <div class="col d-flex flex-row-reverse p-0">
+            <div class="input-group-append">
+                <button class="increment-qty btn btn-brown rounded-0 increment-qty_{{ product.id }}"
+                    data-item_id="{{ product.id }}">
+                    <span class="icon">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center my-4">
+        <button class="btn btn-outline-secondary btn-sm" type="submit">Update</button>
+    </div>  
+</form>
+<div class="d-flex align-items-center justify-content-center">
+    <a href="{% url 'remove_from_bag' item.item_id item.weight %}" class="text-danger">Remove</a>
+</div>

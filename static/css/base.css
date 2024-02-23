@@ -283,6 +283,10 @@ nav {
     text-align: right;
 }
 
+.quantity-bag {
+    border: 1px solid #0A0908;
+}
+
 /* BUTTONS ----------------------- */
 
 .shop-now-button{
@@ -350,6 +354,11 @@ a.category-badge>span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.keep-btn {
+    background-color: #F2F4F3;
+    border: 1px solid #0A0908;
 }
 
 /* BOOTSTRAP TOATS --------------- */
