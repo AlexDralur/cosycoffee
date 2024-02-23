@@ -4,11 +4,11 @@
 
 Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. On the website, the users can find several options of speciality coffee beans roasted by the company to buy and also accessories like filters, different brewing methods and others. Once they are logged in and they make their first purchase, their shipping details are attached to their profile, so they do not need to repeat that step on a second order. They also have the chance to sign up for the newsletter.
 
-![Main screen screenshot]()
+![Main screen screenshot](media/images-docs/main_page_screenshot.png)
 
 ## Table of contents
 
-- [**Cosy COffee**](#revforum)
+- [**Cosy Coffee**](#cosycoffee)
   - [**Overview**](#overview)
   - [Table of contents](#table-of-contents)
   - [**Planning stage**](#planning-stage)
@@ -21,7 +21,7 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
         - [*Keywords*](#keywords)
         - [*Newsletter*](#newsletter)
         - [*Social media*](#social-media)
-    - [**Cosy Coffee Structure:**](#forum-structure)
+    - [**Cosy Coffee Structure:**](#cosycoffee-structure)
     - [**Database Models:**](#database-models)
     - [**Current Features**](#current-features)
         - [*Main Screen:*](#main-screen)
