@@ -30,5 +30,7 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+            else:
+                self.fields['default_country'].widget.attrs['aria-label'] = 'Select your country'
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False

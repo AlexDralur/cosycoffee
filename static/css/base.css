@@ -373,6 +373,12 @@ a.category-badge>span.badge:hover {
     border: 1px solid #0A0908;
 }
 
+/* EXTRA --------------------------- */
+
+label[for="id_image"] + div a {
+    color: #0A0908;
+}
+
 /* BOOTSTRAP TOATS --------------- */
 
 .message-container {

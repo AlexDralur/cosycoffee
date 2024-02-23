@@ -11,7 +11,7 @@
         <div class="col-12 col-md-6">
             <hr />
             <h2 class="logo-font mb-4">Producers Management</h2>
-            <h5 class="text-muted">Edit a Producer</h5>
+            <h3 class="text-muted h-bag">Edit a Producer</h5>
             <hr />
         </div>
     </div>
@@ -23,7 +23,7 @@
                 enctype="multipart/form-data">
                 {% csrf_token %} {{form | crispy}}
                 <div class="text-right">
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">Cancel</a>
+                    <a href="{% url 'producers' %}" class="btn btn-outline-black rounded-0">Cancel</a>
                     <button class="btn btn-brown rounded-0" type="submit">
                         Update Producer
                     </button>

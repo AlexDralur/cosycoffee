@@ -47,7 +47,7 @@
                                 {% for order in orders %}
                                 <!--Display of previous order for the profile-->
                                     <tr>
-                                        <td>
+                                        <td class="allauth-body">
                                             <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number}}">
                                                 {{ order.order_number|truncatechars:6 }}
                                             </a>

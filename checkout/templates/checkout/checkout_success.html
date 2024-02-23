@@ -68,9 +68,11 @@
                         </div>
                         {% else %}
                             {% for item in order.lineitems.all %}
-                            <li class="small">
-                                {{ item.product.name }} ({{ item.product_size }}) x {{ item.quantity }} @ ${{ item.lineitem_total|div:item.quantity }}
-                            </li>
+                            <ul>
+                                <li class="small">
+                                    {{ item.product.name }} ({{ item.product_size }}) x {{ item.quantity }} @ ${{ item.lineitem_total|div:item.quantity }}
+                                </li>
+                            </ul>
                             {% endfor %}
                         {% endif %}
             
