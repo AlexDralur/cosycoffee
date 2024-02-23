@@ -317,14 +317,15 @@ Result: Products page filtered with microlot items.
 
 ## **Validators**
 
-. Lighthouse ![Lighthouse screenshot]()
+. Lighthouse
 All pages passed the Lighthouse check.
 
 . W3C HTML Validator ![W3C HTML Validator screenshot](media/images-docs/cosy_coffee_html_validator.png)
 
 . W3C CSS Validator ![W3C CSS Validator screenshot](media/images-docs/cosy_coffee_css_validator.png)
 
-. Python Linter ![Python Linter Validator screenshot]()
+. Python Linter
+All pages passed the Python Linter check.
 
 ## **Bugs**
 
