@@ -47,6 +47,10 @@ body {
 	z-index: -1;
 }
 
+.h2-size {
+    font-size: 1.5rem;
+}
+
 /* NAVBAR -------------------------- */
 
 nav {
@@ -222,7 +226,7 @@ nav {
     margin-top: 0.3rem;
     margin-left: 0.3rem;
     background-color: #A9927D;
-    color: #F2F4F3;
+    color: #0A0908;
     font-weight: 500;
     z-index: 1;
     padding: 0.5rem;
@@ -291,11 +295,15 @@ nav {
     border: 1px solid #0A0908;
 }
 
+.h-bag {
+    font-size: 1.2rem;
+}
+
 /* BUTTONS ----------------------- */
 
 .shop-now-button{
     background: #5E503F;
-    color: #0A0908;
+    color: #F2F4F3;
     min-width: 260px;
 }
 

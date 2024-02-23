@@ -4,7 +4,7 @@
         <div class="col p-0">
             <div class="input-group-prepend">
                 <button class="decrement-qty btn btn-brown rounded-0 decrement-qty_{{ product.id }}" 
-                    data-item_id="{{ product.id }}">
+                    data-item_id="{{ product.id }}" aria-label="decrease quantity button">
                     <span class="icon">
                         <i class="fas fa-minus"></i>
                     </span>
@@ -13,12 +13,12 @@
         </div>
         <div class="col">
             <input type="hidden" name="product_weight" value="{{ item.weight }}">
-            <input class="form-control form-control-sm qty_input n_align" type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99">
+            <input class="form-control form-control-sm qty_input n_align" type="number" name="quantity" aria-label="current quantity" value="{{ item.quantity }}" min="0" max="99">
         </div>
         <div class="col d-flex flex-row-reverse p-0">
             <div class="input-group-append">
                 <button class="increment-qty btn btn-brown rounded-0 increment-qty_{{ product.id }}"
-                    data-item_id="{{ product.id }}">
+                    data-item_id="{{ product.id }}" aria-label="increase quantity button">
                     <span class="icon">
                         <i class="fas fa-plus"></i>
                     </span>

@@ -100,17 +100,17 @@
                                 <div class="d-lg-inline-flex d-md-column align-items-start quantity-bag">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-brown rounded-0 decrement-qty_{{ product.id }}" 
-                                            data-item_id="{{ product.id }}">
+                                            data-item_id="{{ product.id }}" aria-label="decrease quantity button">
                                             <span class="icon">
                                                 <i class="fas fa-minus"></i>
                                             </span>
                                         </button>
                                     </div>
                                     <input type="hidden" name="product_weight" value="{{ item.weight }}">
-                                    <input class="form-control form-control-sm qty_input n_align" type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99">
+                                    <input class="form-control form-control-sm qty_input n_align" type="number" name="quantity" aria-label="current quantity" value="{{ item.quantity }}" min="0" max="99">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-brown rounded-0 increment-qty_{{ product.id }}"
-                                            data-item_id="{{ product.id }}">
+                                            data-item_id="{{ product.id }}" aria-label="increase quantity button">
                                             <span class="icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -129,8 +129,8 @@
                     <tr>
                         <!--Subtotal-->
                         <td colspan="5" class="pt-5 text-right">
-                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                            <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+                            <h4 class="h-bag"><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h4>
+                            <h4 class="h-bag">Delivery: ${{ delivery|floatformat:2 }}</h4>
                             <h4 class="mt-4">
                                 <strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong>
                             </h4>
