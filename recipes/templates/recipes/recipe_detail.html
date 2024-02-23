@@ -21,6 +21,38 @@
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-5">
+                <div class="d-block d-md-none">
+                    <div class="d-flex justify-items-center">
+                        <div class="col-md-8">
+                            <table class="table mx-auto">
+                                <thead>
+                                    <tr>
+                                        <th>What you need</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="align-middle">Coffee</td>
+                                        <td class="align-middle">{{ recipe.coffee_quantity }}g</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Water</td>
+                                        <td class="align-middle">{{ recipe.water_quantity }}ml</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Grinding Size</td>
+                                        <td class="align-middle">{{ recipe.grinding_size }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Optional Items</td>
+                                        <td class="align-middle">Scale and timer</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <!--Recipe Details-->
                 <div class="col-12 col-md-6">
                     <div class="row">
@@ -39,7 +71,7 @@
                         <div class="col-md-12">
                             <h2>{{ recipe.brewing_type }}</h2>
                             <p>Serves {{ recipe.cups }} cup{% if recipe.cups != 1%}s{% else %}{% endif %}</p>
-                            <div class="table-responsive mt-5">
+                            <div class="table-responsive mt-5 d-none d-md-block">
                                 <table class="table">
                                     <thead>
                                         <tr>
