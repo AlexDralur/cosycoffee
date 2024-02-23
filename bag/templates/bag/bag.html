@@ -183,9 +183,9 @@
 <script>
     $(document).ready(function() {
         // Increment quantity
-        $(".increment-qty").click(function(e) {
+        $(document).on('click', '.increment-qty', function(e) {
             e.preventDefault(); // Prevent default button behavior
-            var inputField = $(this).closest("tr").find(".qty_input");
+            var inputField = $(this).closest("form").find(".qty_input");
             var currentValue = parseInt(inputField.val(), 10);
             if (!isNaN(currentValue) && currentValue < 99) { // Assuming 99 is the max value
                 inputField.val(currentValue + 1);
@@ -193,9 +193,9 @@
         });
 
         // Decrement quantity
-        $(".decrement-qty").click(function(e) {
+        $(document).on('click', '.decrement-qty', function(e) {
             e.preventDefault(); // Prevent default button behavior
-            var inputField = $(this).closest("tr").find(".qty_input");
+            var inputField = $(this).closest("form").find(".qty_input");
             var currentValue = parseInt(inputField.val(), 10);
             if (!isNaN(currentValue) && currentValue > 1) {
                 inputField.val(currentValue - 1);
