@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def bag_contents(request):
     bag_items = []
     total = 0
@@ -19,11 +20,17 @@ def bag_contents(request):
                     quantity = int(quantity)
 
                 subtotal = 0
-                if weight == '250g' and hasattr(product, 'price_250g') and product.price_250g is not None:
+                if (weight == '250g'
+                        and hasattr(product, 'price_250g')
+                        and product.price_250g is not None):
                     subtotal = quantity * product.price_250g
-                elif weight == '1kg' and hasattr(product, 'price_1kg') and product.price_1kg is not None:
+                elif (weight == '1kg'
+                        and hasattr(product, 'price_1kg')
+                        and product.price_1kg is not None):
                     subtotal = quantity * product.price_1kg
-                elif weight == 'ac' and hasattr(product, 'price_ac') and product.price_ac is not None:
+                elif (weight == 'ac'
+                        and hasattr(product, 'price_ac')
+                        and product.price_ac is not None):
                     subtotal = quantity * product.price_ac
 
                 total += subtotal
