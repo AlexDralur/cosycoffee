@@ -12,6 +12,8 @@ import stripe
 def webhook(request):
     # Listen for webhooks from Stripe
 
+    print('webhook')
+
     wh_secret = settings.STRIPE_WH_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -46,6 +48,7 @@ def webhook(request):
 
     # Get the webhook type from Stripe
     event_type = event['type']
+    print(f'event_type {event_type}')
 
     event_handler = event_map.get(event_type, handler.handle_event)
 
