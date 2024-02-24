@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
 
@@ -22,10 +23,10 @@ class StripeWH_Handler:
         """Send the user a confirmation email"""
         cust_email = order.email
         subject = render_to_string(
-            'checkout/templates/checkout/confirmation_emails/confirmation_email_subject.txt',
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
             {'order': order})
         body = render_to_string(
-            'checkout/templates/checkout/confirmation_emails/confirmation_email_body.txt',
+            'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
         send_mail(
@@ -34,7 +35,6 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
-
 
     def handle_event(self, event):
         """
@@ -49,9 +49,6 @@ class StripeWH_Handler:
         Handle the payment_intent.succeeded webhook from Stripe
         """
 
-        print('handle_payment_intent_succeeded')
-
-        
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
@@ -139,16 +136,6 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    else:
-                        for size, quantity in item_data[
-                                'items_by_size'].items():
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
