@@ -88,11 +88,14 @@ class OrderLineItem(models.Model):
         product = self.product
         quantity = self.quantity
 
-        if self.product_size == '250g' and hasattr(product, 'price_250g') and product.price_250g is not None:
+        if (self.product_size == '250g' and hasattr(product, 'price_250g')
+                and product.price_250g is not None):
             self.lineitem_total = product.price_250g * quantity
-        elif self.product_size == '1kg' and hasattr(product, 'price_1kg') and product.price_1kg is not None:
+        elif (self.product_size == '1kg' and hasattr(product, 'price_1kg')
+                and product.price_1kg is not None):
             self.lineitem_total = product.price_1kg * quantity
-        elif self.product_size == 'ac' and hasattr(product, 'price_ac') and product.price_ac is not None:
+        elif (self.product_size == 'ac' and hasattr(product, 'price_ac')
+                and product.price_ac is not None):
             self.lineitem_total = product.price_ac * quantity
         else:
             # Handle case where product size doesn't match any available price

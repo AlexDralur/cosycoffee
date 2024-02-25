@@ -392,6 +392,13 @@ Cause🛠: The loop on the template was not considering the saved information.
 Resolution✅: Add logic to loop through the saved items.
 ***
 
+Problem 🐞: Checkout page would not reload properly if no card details were typed.
+
+Cause🛠: The field was not as required.
+
+Resolution✅: Add required to field.
+***
+
 ## **Deployment**
 
 ## **Tech**
