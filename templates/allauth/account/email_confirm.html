@@ -7,6 +7,7 @@
 
 
 {% block content %}
+<div class="overlay"></div>
 <div class="allauth-form">
     <h1 class="allauth-header">{% trans "Confirm E-mail Address" %}</h1>
 
@@ -26,7 +27,8 @@
     {% url 'account_email' as email_url %}
 
     <p class="allauth-body">{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+    {% endif %}
 </div>
-{% endif %}
+
 
 {% endblock %}
