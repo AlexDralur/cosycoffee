@@ -110,29 +110,38 @@
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
-                {% endif %}
 
-                <div class="submit-button text-right mt-5 mb-2">
-                    <!--Buttons to return to bag or to complete order-->
-                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+                    <div class="submit-button text-right mt-5 mb-2">
+                        <!--Buttons to return to bag or to complete order-->
+                        <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Adjust Bag</span>
+                        </a>
+                        <button class="btn btn-brown mr-3 rounded-0" id="submit-button">
+                            <span class="font-weight-bold">Complete Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                        <p class="small text-danger-my-0 mt-3">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span class="mr-3">Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                        </p>
+                    </div>
+                {% else %}
+                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black mx-3 rounded-0">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Adjust Bag</span>
                     </a>
-                    <button class="btn btn-brown rounded-0" id="submit-button">
-                        <span class="font-weight-bold">Complete Order</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
-                    <p class="small text-danger-my-0 mt-3">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged<strong>${{ grand_total|floatformat:2 }}</strong>></span>
-                    </p>
-                </div>
+                {% endif %}
+
+                
             </form>
         </div>
     </div>
