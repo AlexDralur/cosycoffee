@@ -11,6 +11,9 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
 - [**Cosy Coffee**](#cosycoffee)
   - [**Overview**](#overview)
   - [Table of contents](#table-of-contents)
+  - [**Briefing**](#briefing)
+    - [**Opportunity:**](#product)
+    - [**Cosycoffee:**](#user-stories)
   - [**Planning stage**](#planning-stage)
     - [**Target Audiences:**](#target-audiences)
     - [**User Stories:**](#user-stories)
@@ -47,6 +50,20 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
   - [**Credits**](#credits)
     - [**Honorable mentions**](#honorable-mentions)
     - [**Content:**](#content)
+
+## **Briefing**
+
+### **Opportunity:**
+
+Specialty coffee market is growing at a fast speed. According to a study from December 2023, the expectation is that the [specialty coffee market is set to double to $51.4 Billion by 2030](https://stir-tea-coffee.com/tea-coffee-news/specialty-coffee-market-set-to-double-to-51-4-billion-in-203/). Also, considering the incrase in the amount of people shopping online, it is an opportunity waiting to be taken. Even if there are other players already in the market, there is space for a solution based on the consumer.
+
+### **Cosycoffee:**
+
+Cosycoffee appears as a soltuon for that opportunity. It provides specialty coffee, from small farmers (all traceable), directly to the users address. It also provides brewing methods and its recipes for the user to try at home. 
+
+The idea is not only to sell coffee and products, but to become a hub of information when the user can access either if they did buy their coffee beans with the e-commerce or not. The information on the e-commerce will bring users to the e-commerce and vice-versa.
+
+It creates brandlovers. People who will want the brand to interact with them, making easier for marketing strategies to be more effective, like email markeing. Brandlovers will not only disseminate the name of the company, but also defend it if any crisis appears. 
 
 ## **Planning stage**
 
