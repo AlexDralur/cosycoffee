@@ -13,7 +13,7 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
   - [Table of contents](#table-of-contents)
   - [**Briefing**](#briefing)
     - [**Opportunity:**](#product)
-    - [**Cosycoffee:**](#user-stories)
+    - [**Cosycoffee:**](#cosycoffee)
   - [**Planning stage**](#planning-stage)
     - [**Target Audiences:**](#target-audiences)
     - [**User Stories:**](#user-stories)
@@ -253,7 +253,30 @@ It creates brandlovers. People who will want the brand to interact with them, ma
 
 ## **Testing Phase**
 
-​
+
+* Responsiveness - To ensure that the responsiveness of the website was the best possible, to project was built having the mobile access as the base of the design. The initial tests were made on the mobile, extensively and in different models, to confirm that the website was delivering what it was proposed.
+
+    On mobile, the website was tested on the following devices:
+    * Samsung 20FE
+    * Iphone 13 Pro Max
+    * Iphone SE (3rd generation)
+
+    No issues were noted upon project completion.
+
+    On tablets, the website was tested on the following device:
+    * Ipad Air 4
+
+    No issues were noted upon project completion.
+
+    On notebooks, the website was tested on the following devices:
+    * Dell Latitute 15
+    * Macbook Air
+
+    No issues were noted upon project completion.
+
+    For the desktop tests, an Asus VX228 monitor was also used.
+    No issues were noted upon project completion.
+
 
 Implementation: Create new category as admin.
 
@@ -332,10 +355,30 @@ Test: Click shop now button in index page.
 Result: Products page filtered with microlot items.
 ***
 
+Implementation: Only authenticated users can purchase on the website.
+
+Test: Access the checkout page and tried to finish the purchase.
+
+Result: No area to input card details or the button to finish purchase.
+***
+
+Implementation: Prevent user to input no card details.
+
+Test: Tried to checkout without typing any card details.
+
+Result: Page reloads informing that the card number is incomplete.
+***
+
+Implementation: Delivery details are saved after the purchase if user checks box.
+
+Test: Finilised a purhcase and checked the box to save details in profile.
+
+Result: Profile page shows the delivery information from the last purchase.
+***
+
 ## **Validators**
 
-. Lighthouse
-All pages passed the Lighthouse check.
+. Lighthouse ![Lighthouse screenshot](media/images-docs/cosycoffee-lighthouse.png)
 
 . W3C HTML Validator ![W3C HTML Validator screenshot](media/images-docs/cosy_coffee_html_validator.png)
 
@@ -414,6 +457,13 @@ Problem 🐞: Checkout page would not reload properly if no card details were ty
 Cause🛠: The field was not as required.
 
 Resolution✅: Add required to field.
+***
+
+Problem 🐞: User could finalise a purchase without being logged in.
+
+Cause🛠: The button to complete order was outside the if statement in the template.
+
+Resolution✅: Added the button to the if statement and add an else part to allow user to return to shop if not logged in.
 ***
 
 ## **Deployment**
