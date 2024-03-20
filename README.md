@@ -25,6 +25,7 @@ Cosycoffee is coffee roaster with an e-commerce website aimed to coffee lovers. 
         - [*Newsletter*](#newsletter)
         - [*Social media*](#social-media)
     - [**Cosy Coffee Structure:**](#cosycoffee-structure)
+    - [**Cosy Coffee Wireframes:**](#cosycoffee-wireframes)
     - [**Database Models:**](#database-models)
     - [**Current Features**](#current-features)
         - [*Main Screen:*](#main-screen)
@@ -139,6 +140,25 @@ It creates brandlovers. People who will want the brand to interact with them, ma
 - There are three levels of access within the e-commerce. The first is the user who is not registered in the website. They can see the products, producers, search for products, the bag, have access to the footer and also access the page to login and signup. If the user is registered, they can have access to their profile page, with their previous orders and also the checkout page. The last level is superuser, the administrator of the website, who can add products and producers. They can also edit and delete on the products and producers page.
 
 ![Cosycoffee Structure - Diagram](media/images-docs/cosy_coffee_diagram.png)
+
+### **Cosy Coffee Wireframes:**
+- Wireframes made with [Figma](https://www.figma.com/)
+
+![Main page wireframe](media/images-docs/cosycoffee-mainpage-wireframe.PNG)
+
+![Products page wireframe](media/images-docs/cosycoffee-productspage-wireframe.PNG)
+
+![Product Detail page wireframe](media/images-docs/cosycoffee-productdetail-wireframe.PNG)
+
+![Recipes page wireframe](media/images-docs/cosycoffee-recipespage-wireframe.PNG)
+
+![Recipe detail page wireframe](media/images-docs/cosycoffee-recipedetailspage-wireframe.PNG)
+
+![Producers page wireframe](media/images-docs/cosycoffee-producerspage-wireframe.PNG)
+
+![Shopping Bag page wireframe](media/images-docs/cosycoffee-shoppingbag-wireframe.PNG)
+
+![Checkout page wireframe](media/images-docs/cosycoffee-checkout-wireframe.PNG)
 
 ### **Database models:**
 - The models were created with DrawQSL.
