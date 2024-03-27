@@ -142,8 +142,9 @@ It creates brandlovers. People who will want the brand to interact with them, ma
 ![Cosycoffee Structure - Diagram](media/images-docs/cosy_coffee_diagram.png)
 
 ### **Cosy Coffee Wireframes:**
-- Wireframes made with [Figma](https://www.figma.com/)
+Wireframes made with [Figma](https://www.figma.com/)
 
+- Desktop Wireframes
 ![Main page wireframe](media/images-docs/cosycoffee-mainpage-wireframe.PNG)
 
 ![Products page wireframe](media/images-docs/cosycoffee-productspage-wireframe.PNG)
@@ -159,6 +160,23 @@ It creates brandlovers. People who will want the brand to interact with them, ma
 ![Shopping Bag page wireframe](media/images-docs/cosycoffee-shoppingbag-wireframe.PNG)
 
 ![Checkout page wireframe](media/images-docs/cosycoffee-checkout-wireframe.PNG)
+
+- Mobile Wireframes
+![Main page wireframe]()
+
+![Products page wireframe]()
+
+![Product Detail page wireframe]()
+
+![Recipes page wireframe]()
+
+![Recipe detail page wireframe]()
+
+![Producers page wireframe]()
+
+![Shopping Bag page wireframe]()
+
+![Checkout page wireframe]()
 
 ### **Database models:**
 - The models were created with DrawQSL.
@@ -488,6 +506,38 @@ Resolution✅: Added the button to the if statement and add an else part to allo
 
 ## **Deployment**
 
+## Prerequisites
+
+- [Heroku account](https://signup.heroku.com/).
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli).
+- [Stripe](https://stripe.com/)
+- [AWS](https://aws.amazon.com/)
+
+## Deployment to Heroku
+
+1. In the environment, confirm that all the requirements are up to date on the requirements.txt file. This can be done with the following command: `pip3 freeze --local > requirements.txt`.
+2. Also in the environment, confirm that sensitive information is not public displayed, so all of them are kept in the env.py file and that the file itself is mentioned inside the `.gitignore` file so the file is not pushed to the Github repository.
+3. Create a `Procfile` file in the root of the project so Heroku can read the project.
+4. Access Heroku.
+5. Click in New App.
+6. On the new page, choose the name of the app and select the region closest to yours.
+7. Once the app page appears, go to Settings.
+8. Locate the Config Vars button and click.
+9. Add the relevant variables to the app as mentioned below.
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- STRIPE_PUBLIC_KEY
+- STRIPE_SECRET_KEY
+- STRIPE_WH_SECRET
+- DATABASE_URL
+- SECRET_KEY
+10. Click in Deploy.
+11. In the deployment method, choose Github and connect account.
+12. Below, in App connect to Github, choose the relevant repository.
+13. Check the box for automatic deploys (this will guarantee that the app is always up to date with the last updated version in Github).
+14. Click deploy.
+
+
 ## **Tech**
 
 - Python.
@@ -510,11 +560,11 @@ Resolution✅: Added the button to the if statement and add an else part to allo
 
 ### **Content:**
 
-- Structure of the project (apps) based on the codealong project "Boutique Ado" from [CodeInstitute] (<https://github.com/Code-Institute-Org/boutique_ado_v1>)
-- Search bag based on the simple bar example from [SliderRevolution] (<https://www.sliderrevolution.com/resources/css-search-box/>)
-- Images of producers collected from [Freepik] (<https://www.freepik.com>)
+- Structure of the project (apps) based on the codealong project "Boutique Ado" from [CodeInstitute](<https://github.com/Code-Institute-Org/boutique_ado_v1>)
+- Search bag based on the simple bar example from [SliderRevolution](<https://www.sliderrevolution.com/resources/css-search-box/>)
+- Images of producers collected from [Freepik](<https://www.freepik.com>)
 - Images of acccessories taken from each company website
-- Facebook mockup structure from [Unblast] (<https://unblast.com/free-facebook-page-mockup-2022-psd/>)
-- SKUs made with [Zoho] (<https://www.zoho.com/inventory/sku-generator/>)
-- Footer HTML based on the basic footer structure from [MDBootstrap] (<https://mdbootstrap.com/docs/b4/jquery/navigation/footer/>)
-- Privacy Policy made with [TermsFeed] (<https://app.termsfeed.com/>)
+- Facebook mockup structure from [Unblast](<https://unblast.com/free-facebook-page-mockup-2022-psd/>)
+- SKUs made with [Zoho](<https://www.zoho.com/inventory/sku-generator/>)
+- Footer HTML based on the basic footer structure from [MDBootstrap](<https://mdbootstrap.com/docs/b4/jquery/navigation/footer/>)
+- Privacy Policy made with [TermsFeed](<https://app.termsfeed.com/>)
