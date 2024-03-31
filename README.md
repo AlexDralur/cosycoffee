@@ -162,21 +162,21 @@ Wireframes made with [Figma](https://www.figma.com/)
 ![Checkout page wireframe](media/images-docs/cosycoffee-checkout-wireframe.PNG)
 
 - Mobile Wireframes
-![Main page wireframe]()
+![Main page wireframe](media/images-docs/cosycoffee-mainpage-mobile-wireframe.PNG)
 
-![Products page wireframe]()
+![Products page wireframe](media/images-docs/cosycoffee-productspage-mobile-wireframe.PNG)
 
-![Product Detail page wireframe]()
+![Product Detail page wireframe](media/images-docs/cosycoffee-productdetail-mobile-wireframe.PNG)
 
-![Recipes page wireframe]()
+![Recipes page wireframe](media/images-docs/cosycoffee-recipes-mobile-wireframe.png)
 
-![Recipe detail page wireframe]()
+![Recipe detail page wireframe](media/images-docs/cosycoffee-recipedetail-mobile-wireframe.png)
 
-![Producers page wireframe]()
+![Producers page wireframe](media/images-docs/cosycoffee-producers-mobile-wireframe.png)
 
-![Shopping Bag page wireframe]()
+![Shopping Bag page wireframe](media/images-docs/cosycoffee-shoppingbag-mobile-wireframe.png)
 
-![Checkout page wireframe]()
+![Checkout page wireframe](media/images-docs/cosycoffee-checkout-mobile-wireframe.png)
 
 ### **Database models:**
 - The models were created with DrawQSL.
