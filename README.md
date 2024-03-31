@@ -163,11 +163,11 @@ Wireframes made with [Figma](https://www.figma.com/)
 
 - Mobile Wireframes
 
-![Main page wireframe](media/images-docs/cosycoffee-mainpage-mobile-wireframe.PNG)
+![Main page wireframe](media/images-docs/cosycoffee-mainpage-mobile-wireframe.png)
 
-![Products page wireframe](media/images-docs/cosycoffee-productspage-mobile-wireframe.PNG)
+![Products page wireframe](media/images-docs/cosycoffee-productspage-mobile-wireframe.png)
 
-![Product Detail page wireframe](media/images-docs/cosycoffee-productdetail-mobile-wireframe.PNG)
+![Product Detail page wireframe](media/images-docs/cosycoffee-productdetail-mobile-wireframe.png)
 
 ![Recipes page wireframe](media/images-docs/cosycoffee-recipes-mobile-wireframe.png)
 
