@@ -162,6 +162,7 @@ Wireframes made with [Figma](https://www.figma.com/)
 ![Checkout page wireframe](media/images-docs/cosycoffee-checkout-wireframe.PNG)
 
 - Mobile Wireframes
+
 ![Main page wireframe](media/images-docs/cosycoffee-mainpage-mobile-wireframe.PNG)
 
 ![Products page wireframe](media/images-docs/cosycoffee-productspage-mobile-wireframe.PNG)
