@@ -417,7 +417,7 @@ Result: Profile page shows the delivery information from the last purchase.
 
 ## **Validators**
 
-. Lighthouse ![Lighthouse screenshot](media/images-docs/cosycoffee-lighthouse.png)
+. Lighthouse (low numbers related to Heroku and to third party cookies - Stripe) ![Lighthouse screenshot](media/images-docs/cosycoffee-lighthouse.png)
 
 . W3C HTML Validator ![W3C HTML Validator screenshot](media/images-docs/cosy_coffee_html_validator.png)
 
